@@ -12,15 +12,7 @@ const CodeBlock = ({ children, title }: { children: string; title: string }) => 
   </div>
 );
 
-const BannerExample = ({
-  title,
-  code,
-  children,
-}: {
-  title: string;
-  code: string;
-  children: React.ReactNode;
-}) => (
+const BannerExample = ({ title, code, children }: { title: string; code: string; children: React.ReactNode }) => (
   <div className="space-y-4">
     <h3 className="text-lg font-semibold">{title}</h3>
     <div className="space-y-4">
@@ -56,10 +48,7 @@ export default function Page() {
               Banner components for displaying important information with optional actions.
             </p>
           </div>
-          <button
-            onClick={resetDismissed}
-            className="text-xs text-muted-foreground hover:text-foreground underline"
-          >
+          <button onClick={resetDismissed} className="text-xs text-muted-foreground hover:text-foreground underline">
             Reset dismissed banners
           </button>
         </div>
@@ -259,12 +248,13 @@ export default function Page() {
                   <div>
                     <span className="font-mono bg-muted px-1.5 py-0.5 rounded">variant</span>
                     <span className="text-muted-foreground ml-2">
-                      "info" | "info-neutral" | "error" | "warning" | "success"
+                      &quot;info&quot; | &quot;info-neutral&quot; | &quot;error&quot; | &quot;warning&quot; |
+                      &quot;success&quot;
                     </span>
                   </div>
                   <div>
                     <span className="font-mono bg-muted px-1.5 py-0.5 rounded">layout</span>
-                    <span className="text-muted-foreground ml-2">"inline" | "block"</span>
+                    <span className="text-muted-foreground ml-2">&quot;inline&quot; | &quot;block&quot;</span>
                   </div>
                   <div>
                     <span className="font-mono bg-muted px-1.5 py-0.5 rounded">heading</span>
@@ -276,7 +266,7 @@ export default function Page() {
                   </div>
                   <div>
                     <span className="font-mono bg-muted px-1.5 py-0.5 rounded">onDismiss</span>
-                    <span className="text-muted-foreground ml-2">() => void (optional)</span>
+                    <span className="text-muted-foreground ml-2">() =&gt; void (optional)</span>
                   </div>
                   <div>
                     <span className="font-mono bg-muted px-1.5 py-0.5 rounded">primaryAction</span>
