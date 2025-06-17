@@ -366,7 +366,7 @@ export default function Page() {
   This banner cannot be dismissed
 </Banner>`}
             />
-            <div className="flex items-center">
+            <div className="flex items-start pt-6">
               <Banner variant="info" showDismiss={false}>
                 This banner cannot be dismissed
               </Banner>
@@ -381,7 +381,7 @@ export default function Page() {
   This banner has no icon
 </Banner>`}
             />
-            <div className="flex items-center">
+            <div className="flex items-start pt-6">
               <Banner variant="warning" showIcon={false} onDismiss={() => console.log("Dismissed")}>
                 This banner has no icon
               </Banner>
@@ -396,7 +396,7 @@ export default function Page() {
   Operation completed successfully
 </Banner>`}
             />
-            <div className="flex items-start">
+            <div className="flex items-start pt-6">
               <Banner variant="success" heading="Success!" onDismiss={() => console.log("Dismissed")}>
                 Operation completed successfully
               </Banner>
@@ -411,7 +411,7 @@ export default function Page() {
   Custom styled banner with dashed border
 </Banner>`}
             />
-            <div className="flex items-center">
+            <div className="flex items-start pt-6">
               <Banner variant="error" className="border-2 border-dashed" onDismiss={() => console.log("Dismissed")}>
                 Custom styled banner with dashed border
               </Banner>
