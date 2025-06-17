@@ -61,7 +61,7 @@ export default function Page() {
           </div>
 
           {/* Inline Info */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
               title="Inline Info Banner"
               children={`<Banner
@@ -73,20 +73,22 @@ export default function Page() {
   Single line information with an action and dismiss option
 </Banner>`}
             />
-            {!dismissedBanners.has("inline-info") && (
-              <Banner
-                layout="inline"
-                variant="info"
-                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-                onDismiss={() => handleDismiss("inline-info")}
-              >
-                Single line information with an action and dismiss option
-              </Banner>
-            )}
+            <div className="flex items-center">
+              {!dismissedBanners.has("inline-info") && (
+                <Banner
+                  layout="inline"
+                  variant="info"
+                  primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                  onDismiss={() => handleDismiss("inline-info")}
+                >
+                  Single line information with an action and dismiss option
+                </Banner>
+              )}
+            </div>
           </div>
 
           {/* Inline Neutral */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
               title="Inline Neutral Banner"
               children={`<Banner
@@ -98,20 +100,22 @@ export default function Page() {
   Single line information with an action and dismiss option
 </Banner>`}
             />
-            {!dismissedBanners.has("inline-neutral") && (
-              <Banner
-                layout="inline"
-                variant="info-neutral"
-                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-                onDismiss={() => handleDismiss("inline-neutral")}
-              >
-                Single line information with an action and dismiss option
-              </Banner>
-            )}
+            <div className="flex items-center">
+              {!dismissedBanners.has("inline-neutral") && (
+                <Banner
+                  layout="inline"
+                  variant="info-neutral"
+                  primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                  onDismiss={() => handleDismiss("inline-neutral")}
+                >
+                  Single line information with an action and dismiss option
+                </Banner>
+              )}
+            </div>
           </div>
 
           {/* Inline Error */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
               title="Inline Error Banner"
               children={`<Banner
@@ -123,20 +127,22 @@ export default function Page() {
   Single line information with an action and dismiss option
 </Banner>`}
             />
-            {!dismissedBanners.has("inline-error") && (
-              <Banner
-                layout="inline"
-                variant="error"
-                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-                onDismiss={() => handleDismiss("inline-error")}
-              >
-                Single line information with an action and dismiss option
-              </Banner>
-            )}
+            <div className="flex items-center">
+              {!dismissedBanners.has("inline-error") && (
+                <Banner
+                  layout="inline"
+                  variant="error"
+                  primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                  onDismiss={() => handleDismiss("inline-error")}
+                >
+                  Single line information with an action and dismiss option
+                </Banner>
+              )}
+            </div>
           </div>
 
           {/* Inline Warning */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
               title="Inline Warning Banner"
               children={`<Banner
@@ -148,20 +154,22 @@ export default function Page() {
   Single line information with an action and dismiss option
 </Banner>`}
             />
-            {!dismissedBanners.has("inline-warning") && (
-              <Banner
-                layout="inline"
-                variant="warning"
-                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-                onDismiss={() => handleDismiss("inline-warning")}
-              >
-                Single line information with an action and dismiss option
-              </Banner>
-            )}
+            <div className="flex items-center">
+              {!dismissedBanners.has("inline-warning") && (
+                <Banner
+                  layout="inline"
+                  variant="warning"
+                  primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                  onDismiss={() => handleDismiss("inline-warning")}
+                >
+                  Single line information with an action and dismiss option
+                </Banner>
+              )}
+            </div>
           </div>
 
           {/* Inline Success */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
               title="Inline Success Banner"
               children={`<Banner
@@ -173,16 +181,18 @@ export default function Page() {
   Single line information with an action and dismiss option
 </Banner>`}
             />
-            {!dismissedBanners.has("inline-success") && (
-              <Banner
-                layout="inline"
-                variant="success"
-                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-                onDismiss={() => handleDismiss("inline-success")}
-              >
-                Single line information with an action and dismiss option
-              </Banner>
-            )}
+            <div className="flex items-center">
+              {!dismissedBanners.has("inline-success") && (
+                <Banner
+                  layout="inline"
+                  variant="success"
+                  primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                  onDismiss={() => handleDismiss("inline-success")}
+                >
+                  Single line information with an action and dismiss option
+                </Banner>
+              )}
+            </div>
           </div>
         </div>
 
