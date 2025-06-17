@@ -73,7 +73,7 @@ export default function Page() {
   Single line information with an action and dismiss option
 </Banner>`}
             />
-            <div className="flex items-center">
+            <div className="flex items-start pt-6">
               {!dismissedBanners.has("inline-info") && (
                 <Banner
                   layout="inline"
