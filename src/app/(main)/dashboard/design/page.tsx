@@ -100,7 +100,7 @@ export default function Page() {
   Single line information with an action and dismiss option
 </Banner>`}
             />
-            <div className="flex items-center">
+            <div className="flex items-start pt-6">
               {!dismissedBanners.has("inline-neutral") && (
                 <Banner
                   layout="inline"
@@ -127,7 +127,7 @@ export default function Page() {
   Single line information with an action and dismiss option
 </Banner>`}
             />
-            <div className="flex items-center">
+            <div className="flex items-start pt-6">
               {!dismissedBanners.has("inline-error") && (
                 <Banner
                   layout="inline"
@@ -154,7 +154,7 @@ export default function Page() {
   Single line information with an action and dismiss option
 </Banner>`}
             />
-            <div className="flex items-center">
+            <div className="flex items-start pt-6">
               {!dismissedBanners.has("inline-warning") && (
                 <Banner
                   layout="inline"
@@ -181,7 +181,7 @@ export default function Page() {
   Single line information with an action and dismiss option
 </Banner>`}
             />
-            <div className="flex items-center">
+            <div className="flex items-start pt-6">
               {!dismissedBanners.has("inline-success") && (
                 <Banner
                   layout="inline"
