@@ -67,6 +67,11 @@ export const sidebarItems: NavGroup[] = [
     label: "Pages",
     items: [
       {
+        title: "Design System",
+        url: "/dashboard/design",
+        icon: Palette,
+      },
+      {
         title: "Authentication",
         url: "/auth",
         icon: Fingerprint,
