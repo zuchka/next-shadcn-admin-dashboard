@@ -219,7 +219,7 @@ export default function Page() {
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
             />
-            <div className="flex items-start">
+            <div className="flex items-start pt-6">
               {!dismissedBanners.has("block-info") && (
                 <Banner
                   variant="info"
@@ -248,7 +248,7 @@ export default function Page() {
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
             />
-            <div className="flex items-start">
+            <div className="flex items-start pt-6">
               {!dismissedBanners.has("block-neutral") && (
                 <Banner
                   variant="info-neutral"
@@ -277,7 +277,7 @@ export default function Page() {
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
             />
-            <div className="flex items-start">
+            <div className="flex items-start pt-6">
               {!dismissedBanners.has("block-error") && (
                 <Banner
                   variant="error"
@@ -306,7 +306,7 @@ export default function Page() {
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
             />
-            <div className="flex items-start">
+            <div className="flex items-start pt-6">
               {!dismissedBanners.has("block-warning") && (
                 <Banner
                   variant="warning"
@@ -335,7 +335,7 @@ export default function Page() {
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
             />
-            <div className="flex items-start">
+            <div className="flex items-start pt-6">
               {!dismissedBanners.has("block-success") && (
                 <Banner
                   variant="success"
