@@ -1,16 +1,41 @@
 "use client";
 
 import { useState } from "react";
+import { Copy, Check } from "lucide-react";
 import { Banner } from "@/components/ui/banner";
 
-const CodeBlock = ({ children, title }: { children: string; title: string }) => (
-  <div className="space-y-2">
-    <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{title}</h4>
-    <pre className="bg-muted/50 rounded-lg p-3 text-xs overflow-x-auto">
-      <code>{children}</code>
-    </pre>
-  </div>
-);
+const CodeBlock = ({ children, title }: { children: string; title: string }) => {
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(children);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+    }
+  };
+
+  return (
+    <div className="space-y-2">
+      <div className="flex items-center justify-between">
+        <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{title}</h4>
+        <button
+          onClick={copyToClipboard}
+          className="flex items-center gap-1 rounded-md px-2 py-1 text-xs text-muted-foreground hover:bg-muted/50 hover:text-foreground transition-colors"
+          title={copied ? "Copied!" : "Copy to clipboard"}
+        >
+          {copied ? <Check className="size-3" /> : <Copy className="size-3" />}
+          {copied ? "Copied!" : "Copy"}
+        </button>
+      </div>
+      <pre className="bg-muted/50 rounded-lg p-3 text-xs overflow-x-auto">
+        <code>{children}</code>
+      </pre>
+    </div>
+  );
+};
 
 const BannerExample = ({ title, code, children }: { title: string; code: string; children: React.ReactNode }) => (
   <div className="space-y-4">
