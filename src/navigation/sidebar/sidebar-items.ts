@@ -15,6 +15,7 @@ import {
   Lock,
   Fingerprint,
   SquareArrowUpRight,
+  Palette,
   type LucideIcon,
 } from "lucide-react";
 
