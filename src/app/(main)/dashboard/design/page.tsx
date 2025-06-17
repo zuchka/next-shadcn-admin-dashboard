@@ -332,46 +332,64 @@ export default function Page() {
         </div>
 
         {/* Configuration Examples */}
-        <BannerExample
-          title="Configuration Options"
-          code={`// Without dismiss button
-<Banner variant="info" showDismiss={false}>
-  This banner cannot be dismissed
-</Banner>
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Configuration Options</h3>
+            <p className="text-sm text-muted-foreground mb-6">Examples of different banner configurations and customizations.</p>
+          </div>
 
-// Without icon
-<Banner variant="warning" showIcon={false}>
-  This banner has no icon
-</Banner>
-
-// Without actions
-<Banner variant="success" heading="Success!" onDismiss={() => {}}>
-  Operation completed successfully
-</Banner>
-
-// Custom className
-<Banner variant="error" className="border-2 border-dashed">
-  Custom styled banner
-</Banner>`}
-        >
+          {/* Without dismiss button */}
           <div className="space-y-4">
+            <CodeBlock
+              title="Banner without dismiss button"
+              children={`<Banner variant="info" showDismiss={false}>
+  This banner cannot be dismissed
+</Banner>`}
+            />
             <Banner variant="info" showDismiss={false}>
               This banner cannot be dismissed
             </Banner>
+          </div>
 
+          {/* Without icon */}
+          <div className="space-y-4">
+            <CodeBlock
+              title="Banner without icon"
+              children={`<Banner variant="warning" showIcon={false} onDismiss={() => {}}>
+  This banner has no icon
+</Banner>`}
+            />
             <Banner variant="warning" showIcon={false} onDismiss={() => console.log("Dismissed")}>
               This banner has no icon
             </Banner>
+          </div>
 
+          {/* Without actions */}
+          <div className="space-y-4">
+            <CodeBlock
+              title="Banner without actions"
+              children={`<Banner variant="success" heading="Success!" onDismiss={() => {}}>
+  Operation completed successfully
+</Banner>`}
+            />
             <Banner variant="success" heading="Success!" onDismiss={() => console.log("Dismissed")}>
               Operation completed successfully
             </Banner>
+          </div>
 
+          {/* Custom className */}
+          <div className="space-y-4">
+            <CodeBlock
+              title="Banner with custom styling"
+              children={`<Banner variant="error" className="border-2 border-dashed" onDismiss={() => {}}>
+  Custom styled banner with dashed border
+</Banner>`}
+            />
             <Banner variant="error" className="border-2 border-dashed" onDismiss={() => console.log("Dismissed")}>
               Custom styled banner with dashed border
             </Banner>
           </div>
-        </BannerExample>
+        </div>
 
         {/* Props Documentation */}
         <div className="space-y-4">
