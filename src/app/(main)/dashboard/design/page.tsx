@@ -187,9 +187,19 @@ export default function Page() {
         </div>
 
         {/* Block Variants */}
-        <BannerExample
-          title="Block Banners with Heading and Actions"
-          code={`<Banner
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Block Banners with Heading and Actions</h3>
+            <p className="text-sm text-muted-foreground mb-6">
+              Multi-line banners with heading, description, and action buttons.
+            </p>
+          </div>
+
+          {/* Block Info */}
+          <div className="space-y-4">
+            <CodeBlock
+              title="Block Info Banner"
+              children={`<Banner
   variant="info"
   heading="At the moment, we are unable to identify the cause of the connection problem."
   primaryAction={{ label: "Primary Action", onClick: () => {} }}
@@ -198,67 +208,128 @@ export default function Page() {
 >
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
-        >
-          {!dismissedBanners.has("block-info") && (
-            <Banner
-              variant="info"
-              heading="At the moment, we are unable to identify the cause of the connection problem."
-              primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-              secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
-              onDismiss={() => handleDismiss("block-info")}
-            >
-              Get help from the Builder community. This is the best place to get technical assistance from the team
-            </Banner>
-          )}
+            />
+            {!dismissedBanners.has("block-info") && (
+              <Banner
+                variant="info"
+                heading="At the moment, we are unable to identify the cause of the connection problem."
+                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
+                onDismiss={() => handleDismiss("block-info")}
+              >
+                Get help from the Builder community. This is the best place to get technical assistance from the team
+              </Banner>
+            )}
+          </div>
 
-          {!dismissedBanners.has("block-neutral") && (
-            <Banner
-              variant="info-neutral"
-              heading="At the moment, we are unable to identify the cause of the connection problem."
-              primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-              secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
-              onDismiss={() => handleDismiss("block-neutral")}
-            >
-              Get help from the Builder community. This is the best place to get technical assistance from the team
-            </Banner>
-          )}
+          {/* Block Neutral */}
+          <div className="space-y-4">
+            <CodeBlock
+              title="Block Neutral Banner"
+              children={`<Banner
+  variant="info-neutral"
+  heading="At the moment, we are unable to identify the cause of the connection problem."
+  primaryAction={{ label: "Primary Action", onClick: () => {} }}
+  secondaryAction={{ label: "Secondary Action", onClick: () => {} }}
+  onDismiss={() => {}}
+>
+  Get help from the Builder community. This is the best place to get technical assistance from the team
+</Banner>`}
+            />
+            {!dismissedBanners.has("block-neutral") && (
+              <Banner
+                variant="info-neutral"
+                heading="At the moment, we are unable to identify the cause of the connection problem."
+                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
+                onDismiss={() => handleDismiss("block-neutral")}
+              >
+                Get help from the Builder community. This is the best place to get technical assistance from the team
+              </Banner>
+            )}
+          </div>
 
-          {!dismissedBanners.has("block-error") && (
-            <Banner
-              variant="error"
-              heading="At the moment, we are unable to identify the cause of the connection problem."
-              primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-              secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
-              onDismiss={() => handleDismiss("block-error")}
-            >
-              Get help from the Builder community. This is the best place to get technical assistance from the team
-            </Banner>
-          )}
+          {/* Block Error */}
+          <div className="space-y-4">
+            <CodeBlock
+              title="Block Error Banner"
+              children={`<Banner
+  variant="error"
+  heading="At the moment, we are unable to identify the cause of the connection problem."
+  primaryAction={{ label: "Primary Action", onClick: () => {} }}
+  secondaryAction={{ label: "Secondary Action", onClick: () => {} }}
+  onDismiss={() => {}}
+>
+  Get help from the Builder community. This is the best place to get technical assistance from the team
+</Banner>`}
+            />
+            {!dismissedBanners.has("block-error") && (
+              <Banner
+                variant="error"
+                heading="At the moment, we are unable to identify the cause of the connection problem."
+                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
+                onDismiss={() => handleDismiss("block-error")}
+              >
+                Get help from the Builder community. This is the best place to get technical assistance from the team
+              </Banner>
+            )}
+          </div>
 
-          {!dismissedBanners.has("block-warning") && (
-            <Banner
-              variant="warning"
-              heading="At the moment, we are unable to identify the cause of the connection problem."
-              primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-              secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
-              onDismiss={() => handleDismiss("block-warning")}
-            >
-              Get help from the Builder community. This is the best place to get technical assistance from the team
-            </Banner>
-          )}
+          {/* Block Warning */}
+          <div className="space-y-4">
+            <CodeBlock
+              title="Block Warning Banner"
+              children={`<Banner
+  variant="warning"
+  heading="At the moment, we are unable to identify the cause of the connection problem."
+  primaryAction={{ label: "Primary Action", onClick: () => {} }}
+  secondaryAction={{ label: "Secondary Action", onClick: () => {} }}
+  onDismiss={() => {}}
+>
+  Get help from the Builder community. This is the best place to get technical assistance from the team
+</Banner>`}
+            />
+            {!dismissedBanners.has("block-warning") && (
+              <Banner
+                variant="warning"
+                heading="At the moment, we are unable to identify the cause of the connection problem."
+                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
+                onDismiss={() => handleDismiss("block-warning")}
+              >
+                Get help from the Builder community. This is the best place to get technical assistance from the team
+              </Banner>
+            )}
+          </div>
 
-          {!dismissedBanners.has("block-success") && (
-            <Banner
-              variant="success"
-              heading="At the moment, we are unable to identify the cause of the connection problem."
-              primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-              secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
-              onDismiss={() => handleDismiss("block-success")}
-            >
-              Get help from the Builder community. This is the best place to get technical assistance from the team
-            </Banner>
-          )}
-        </BannerExample>
+          {/* Block Success */}
+          <div className="space-y-4">
+            <CodeBlock
+              title="Block Success Banner"
+              children={`<Banner
+  variant="success"
+  heading="At the moment, we are unable to identify the cause of the connection problem."
+  primaryAction={{ label: "Primary Action", onClick: () => {} }}
+  secondaryAction={{ label: "Secondary Action", onClick: () => {} }}
+  onDismiss={() => {}}
+>
+  Get help from the Builder community. This is the best place to get technical assistance from the team
+</Banner>`}
+            />
+            {!dismissedBanners.has("block-success") && (
+              <Banner
+                variant="success"
+                heading="At the moment, we are unable to identify the cause of the connection problem."
+                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
+                onDismiss={() => handleDismiss("block-success")}
+              >
+                Get help from the Builder community. This is the best place to get technical assistance from the team
+              </Banner>
+            )}
+          </div>
+        </div>
 
         {/* Configuration Examples */}
         <BannerExample
