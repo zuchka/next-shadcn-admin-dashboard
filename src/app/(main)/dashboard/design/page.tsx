@@ -359,55 +359,63 @@ export default function Page() {
           </div>
 
           {/* Without dismiss button */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
               title="Banner without dismiss button"
               children={`<Banner variant="info" showDismiss={false}>
   This banner cannot be dismissed
 </Banner>`}
             />
-            <Banner variant="info" showDismiss={false}>
-              This banner cannot be dismissed
-            </Banner>
+            <div className="flex items-center">
+              <Banner variant="info" showDismiss={false}>
+                This banner cannot be dismissed
+              </Banner>
+            </div>
           </div>
 
           {/* Without icon */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
               title="Banner without icon"
               children={`<Banner variant="warning" showIcon={false} onDismiss={() => {}}>
   This banner has no icon
 </Banner>`}
             />
-            <Banner variant="warning" showIcon={false} onDismiss={() => console.log("Dismissed")}>
-              This banner has no icon
-            </Banner>
+            <div className="flex items-center">
+              <Banner variant="warning" showIcon={false} onDismiss={() => console.log("Dismissed")}>
+                This banner has no icon
+              </Banner>
+            </div>
           </div>
 
           {/* Without actions */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
               title="Banner without actions"
               children={`<Banner variant="success" heading="Success!" onDismiss={() => {}}>
   Operation completed successfully
 </Banner>`}
             />
-            <Banner variant="success" heading="Success!" onDismiss={() => console.log("Dismissed")}>
-              Operation completed successfully
-            </Banner>
+            <div className="flex items-start">
+              <Banner variant="success" heading="Success!" onDismiss={() => console.log("Dismissed")}>
+                Operation completed successfully
+              </Banner>
+            </div>
           </div>
 
           {/* Custom className */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
               title="Banner with custom styling"
               children={`<Banner variant="error" className="border-2 border-dashed" onDismiss={() => {}}>
   Custom styled banner with dashed border
 </Banner>`}
             />
-            <Banner variant="error" className="border-2 border-dashed" onDismiss={() => console.log("Dismissed")}>
-              Custom styled banner with dashed border
-            </Banner>
+            <div className="flex items-center">
+              <Banner variant="error" className="border-2 border-dashed" onDismiss={() => console.log("Dismissed")}>
+                Custom styled banner with dashed border
+              </Banner>
+            </div>
           </div>
         </div>
 
