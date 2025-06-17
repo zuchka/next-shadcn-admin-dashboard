@@ -206,7 +206,7 @@ export default function Page() {
           </div>
 
           {/* Block Info */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
               title="Block Info Banner"
               children={`<Banner
@@ -219,21 +219,23 @@ export default function Page() {
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
             />
-            {!dismissedBanners.has("block-info") && (
-              <Banner
-                variant="info"
-                heading="At the moment, we are unable to identify the cause of the connection problem."
-                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-                secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
-                onDismiss={() => handleDismiss("block-info")}
-              >
-                Get help from the Builder community. This is the best place to get technical assistance from the team
-              </Banner>
-            )}
+            <div className="flex items-start">
+              {!dismissedBanners.has("block-info") && (
+                <Banner
+                  variant="info"
+                  heading="At the moment, we are unable to identify the cause of the connection problem."
+                  primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                  secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
+                  onDismiss={() => handleDismiss("block-info")}
+                >
+                  Get help from the Builder community. This is the best place to get technical assistance from the team
+                </Banner>
+              )}
+            </div>
           </div>
 
           {/* Block Neutral */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
               title="Block Neutral Banner"
               children={`<Banner
@@ -246,21 +248,23 @@ export default function Page() {
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
             />
-            {!dismissedBanners.has("block-neutral") && (
-              <Banner
-                variant="info-neutral"
-                heading="At the moment, we are unable to identify the cause of the connection problem."
-                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-                secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
-                onDismiss={() => handleDismiss("block-neutral")}
-              >
-                Get help from the Builder community. This is the best place to get technical assistance from the team
-              </Banner>
-            )}
+            <div className="flex items-start">
+              {!dismissedBanners.has("block-neutral") && (
+                <Banner
+                  variant="info-neutral"
+                  heading="At the moment, we are unable to identify the cause of the connection problem."
+                  primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                  secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
+                  onDismiss={() => handleDismiss("block-neutral")}
+                >
+                  Get help from the Builder community. This is the best place to get technical assistance from the team
+                </Banner>
+              )}
+            </div>
           </div>
 
           {/* Block Error */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
               title="Block Error Banner"
               children={`<Banner
@@ -273,21 +277,23 @@ export default function Page() {
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
             />
-            {!dismissedBanners.has("block-error") && (
-              <Banner
-                variant="error"
-                heading="At the moment, we are unable to identify the cause of the connection problem."
-                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-                secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
-                onDismiss={() => handleDismiss("block-error")}
-              >
-                Get help from the Builder community. This is the best place to get technical assistance from the team
-              </Banner>
-            )}
+            <div className="flex items-start">
+              {!dismissedBanners.has("block-error") && (
+                <Banner
+                  variant="error"
+                  heading="At the moment, we are unable to identify the cause of the connection problem."
+                  primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                  secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
+                  onDismiss={() => handleDismiss("block-error")}
+                >
+                  Get help from the Builder community. This is the best place to get technical assistance from the team
+                </Banner>
+              )}
+            </div>
           </div>
 
           {/* Block Warning */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
               title="Block Warning Banner"
               children={`<Banner
@@ -300,21 +306,23 @@ export default function Page() {
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
             />
-            {!dismissedBanners.has("block-warning") && (
-              <Banner
-                variant="warning"
-                heading="At the moment, we are unable to identify the cause of the connection problem."
-                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-                secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
-                onDismiss={() => handleDismiss("block-warning")}
-              >
-                Get help from the Builder community. This is the best place to get technical assistance from the team
-              </Banner>
-            )}
+            <div className="flex items-start">
+              {!dismissedBanners.has("block-warning") && (
+                <Banner
+                  variant="warning"
+                  heading="At the moment, we are unable to identify the cause of the connection problem."
+                  primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                  secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
+                  onDismiss={() => handleDismiss("block-warning")}
+                >
+                  Get help from the Builder community. This is the best place to get technical assistance from the team
+                </Banner>
+              )}
+            </div>
           </div>
 
           {/* Block Success */}
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
               title="Block Success Banner"
               children={`<Banner
@@ -327,17 +335,19 @@ export default function Page() {
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
             />
-            {!dismissedBanners.has("block-success") && (
-              <Banner
-                variant="success"
-                heading="At the moment, we are unable to identify the cause of the connection problem."
-                primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
-                secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
-                onDismiss={() => handleDismiss("block-success")}
-              >
-                Get help from the Builder community. This is the best place to get technical assistance from the team
-              </Banner>
-            )}
+            <div className="flex items-start">
+              {!dismissedBanners.has("block-success") && (
+                <Banner
+                  variant="success"
+                  heading="At the moment, we are unable to identify the cause of the connection problem."
+                  primaryAction={{ label: "Primary Action", onClick: () => console.log("Primary clicked") }}
+                  secondaryAction={{ label: "Secondary Action", onClick: () => console.log("Secondary clicked") }}
+                  onDismiss={() => handleDismiss("block-success")}
+                >
+                  Get help from the Builder community. This is the best place to get technical assistance from the team
+                </Banner>
+              )}
+            </div>
           </div>
         </div>
 
