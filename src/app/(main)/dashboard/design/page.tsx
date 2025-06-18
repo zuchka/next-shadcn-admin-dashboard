@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Copy, Check } from "lucide-react";
-import { Banner } from "@/components/ui/banner";
+import { Banner } from "@/components/banner";
 
 const CodeBlock = ({ children, title }: { children: string; title: string }) => {
   const [copied, setCopied] = useState(false);
@@ -101,7 +101,7 @@ export default function Page() {
         </div>
 
         {/* Inline Variants */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div>
             <h3 className="text-lg font-semibold mb-4">Inline Banners</h3>
             <p className="text-sm text-muted-foreground mb-6">Single line banners with actions and dismiss options.</p>
@@ -249,7 +249,7 @@ export default function Page() {
         </div>
 
         {/* Block Variants */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div>
             <h3 className="text-lg font-semibold mb-4">Block Banners with Heading and Actions</h3>
             <p className="text-sm text-muted-foreground mb-6">
@@ -409,7 +409,7 @@ export default function Page() {
         </div>
 
         {/* Configuration Examples */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div>
             <h3 className="text-lg font-semibold mb-4">Configuration Options</h3>
             <p className="text-sm text-muted-foreground mb-6">Examples of different banner configurations and customizations.</p>
