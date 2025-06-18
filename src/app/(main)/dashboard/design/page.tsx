@@ -6,6 +6,7 @@ import { Banner } from "@/components/ui/banner";
 
 const CodeBlock = ({ children, title }: { children: string; title: string }) => {
   const [copied, setCopied] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const copyToClipboard = async () => {
     try {
@@ -20,19 +21,40 @@ const CodeBlock = ({ children, title }: { children: string; title: string }) => 
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
-        <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{title}</h4>
         <button
-          onClick={copyToClipboard}
-          className="flex items-center gap-1 rounded-md px-2 py-1 text-xs text-muted-foreground hover:bg-muted/50 hover:text-foreground transition-colors"
-          title={copied ? "Copied!" : "Copy to clipboard"}
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="flex items-center gap-2 text-xs font-medium text-muted-foreground uppercase tracking-wider hover:text-foreground transition-colors"
         >
-          {copied ? <Check className="size-3" /> : <Copy className="size-3" />}
-          {copied ? "Copied!" : "Copy"}
+          <svg
+            className={`size-3 transition-transform ${isExpanded ? 'rotate-90' : ''}`}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+          {title}
         </button>
+        {isExpanded && (
+          <button
+            onClick={copyToClipboard}
+            className="flex items-center gap-1 rounded-md px-2 py-1 text-xs text-muted-foreground hover:bg-muted/50 hover:text-foreground transition-colors"
+            title={copied ? "Copied!" : "Copy to clipboard"}
+          >
+            {copied ? <Check className="size-3" /> : <Copy className="size-3" />}
+            {copied ? "Copied!" : "Copy"}
+          </button>
+        )}
       </div>
-      <pre className="bg-muted/50 rounded-lg p-3 text-xs overflow-x-auto">
-        <code>{children}</code>
-      </pre>
+      {isExpanded && (
+        <pre className="bg-muted/50 rounded-lg p-3 text-xs overflow-x-auto">
+          <code>{children}</code>
+        </pre>
+      )}
     </div>
   );
 };
