@@ -177,9 +177,10 @@ export function DateTimePicker({ value, onChange, className }: DateTimePickerPro
                 key={`${weekIndex}-${dayIndex}`}
                 onClick={(e) => handleDateSelect(day, e)}
                 className={cn(
-                  "flex w-8 h-8 justify-center items-center hover:bg-gray-100 rounded-full transition-colors",
-                  day.isToday && !isDateSelected(day) && "bg-[#BCCAD9]",
-                  isDateSelected(day) && "bg-[#4C56BB]",
+                  "flex w-8 h-8 justify-center items-center rounded-full transition-colors",
+                  !isDateSelected(day) && !day.isToday && "hover:bg-gray-100",
+                  day.isToday && !isDateSelected(day) && "bg-[#BCCAD9] hover:bg-[#BCCAD9]",
+                  isDateSelected(day) && "bg-[#4C56BB] hover:bg-[#4C56BB]",
                 )}
               >
                 <span
