@@ -213,7 +213,7 @@ export function DateTimePicker({ value, onChange, className }: DateTimePickerPro
               max="12"
               value={time.hour.toString().padStart(2, "0")}
               onChange={(e) => handleTimeChange({ hour: parseInt(e.target.value) || 1 })}
-              className="w-8 text-[#213447] text-base font-normal bg-transparent border-none outline-none text-center"
+              className="w-10 text-[#213447] text-base font-normal bg-transparent border-none outline-none text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             />
             <span className="text-[#213447] text-base font-normal">:</span>
             <input
@@ -222,7 +222,7 @@ export function DateTimePicker({ value, onChange, className }: DateTimePickerPro
               max="59"
               value={time.minute.toString().padStart(2, "0")}
               onChange={(e) => handleTimeChange({ minute: parseInt(e.target.value) || 0 })}
-              className="w-8 text-[#213447] text-base font-normal bg-transparent border-none outline-none text-center mr-[10px]"
+              className="w-10 text-[#213447] text-base font-normal bg-transparent border-none outline-none text-center mr-[10px] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
             />
           </div>
 
