@@ -66,7 +66,6 @@ const NavItemExpanded = ({
               <Link href={item.url} target={item.newTab ? "_blank" : undefined}>
                 {item.icon && <item.icon />}
                 <span>{item.title}</span>
-                {item.comingSoon && <IsComingSoon />}
               </Link>
             </SidebarMenuButton>
           )}
