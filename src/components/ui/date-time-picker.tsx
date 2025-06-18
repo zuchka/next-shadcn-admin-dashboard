@@ -179,8 +179,8 @@ export function DateTimePicker({ value, onChange, className }: DateTimePickerPro
                 className={cn(
                   "flex w-8 h-8 justify-center items-center rounded-full transition-colors",
                   !isDateSelected(day) && !day.isToday && "hover:bg-gray-100",
-                  day.isToday && !isDateSelected(day) && "bg-[#BCCAD9] hover:bg-[#BCCAD9]",
-                  isDateSelected(day) && "bg-[#4C56BB] hover:bg-[#4C56BB]",
+                  day.isToday && !isDateSelected(day) && "bg-orange-200 hover:bg-orange-200",
+                  isDateSelected(day) && "bg-[#ea580c] hover:bg-[#ea580c]",
                 )}
               >
                 <span
