@@ -165,6 +165,7 @@ export default function Page() {
 
           {/* Inline Error */}
           <div className="space-y-4">
+            <h4 className="text-sm font-medium">Inline Error Banner</h4>
             <div>
               {!dismissedBanners.has("inline-error") && (
                 <Banner
@@ -178,7 +179,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="Inline Error Banner"
+              title="React Code"
               children={`<Banner
   layout="inline"
   variant="error"
