@@ -101,7 +101,7 @@ export default function Page() {
         </div>
 
         {/* Inline Variants */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div>
             <h3 className="text-lg font-semibold mb-4">Inline Banners</h3>
             <p className="text-sm text-muted-foreground mb-6">Single line banners with actions and dismiss options.</p>
