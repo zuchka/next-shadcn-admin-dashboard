@@ -384,18 +384,18 @@ export default function Page() {
           </div>
 
           {/* Without dismiss button */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <div>
+              <Banner variant="info" showDismiss={false}>
+                This banner cannot be dismissed
+              </Banner>
+            </div>
             <CodeBlock
               title="Banner without dismiss button"
               children={`<Banner variant="info" showDismiss={false}>
   This banner cannot be dismissed
 </Banner>`}
             />
-            <div className="flex items-start pt-6">
-              <Banner variant="info" showDismiss={false}>
-                This banner cannot be dismissed
-              </Banner>
-            </div>
           </div>
 
           {/* Without icon */}
