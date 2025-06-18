@@ -409,7 +409,7 @@ export default function Page() {
         </div>
 
         {/* Configuration Examples */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <div>
             <h3 className="text-lg font-semibold mb-4">Configuration Options</h3>
             <p className="text-sm text-muted-foreground mb-6">Examples of different banner configurations and customizations.</p>
