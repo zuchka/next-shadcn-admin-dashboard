@@ -96,7 +96,6 @@ export const sidebarItems: NavGroup[] = [
         title: "Calendar",
         url: "/calendar",
         icon: Calendar,
-        comingSoon: true,
       },
       {
         title: "Kanban",
