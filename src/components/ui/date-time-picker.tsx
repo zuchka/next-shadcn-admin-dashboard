@@ -198,18 +198,18 @@ export function DateTimePicker({ value, onChange, className }: DateTimePickerPro
       <div className="w-full h-px bg-[#F0F3F7]" />
 
       {/* Time Picker */}
-      <div className="flex w-full py-2 justify-between items-center">
+      <div className="flex w-full py-3 justify-between items-center">
         <span className="text-[#213447] text-base font-medium leading-5">Time</span>
-        <div className="flex items-start gap-2">
+        <div className="flex items-center gap-3">
           {/* Time Input */}
-          <div className="flex h-8 px-2 justify-center items-center gap-1 rounded-[5px] bg-[#F0F3F7]">
+          <div className="flex h-10 px-3 justify-center items-center gap-2 rounded-[8px] bg-[#F0F3F7]">
             <input
               type="number"
               min="1"
               max="12"
               value={time.hour.toString().padStart(2, "0")}
               onChange={(e) => handleTimeChange({ hour: parseInt(e.target.value) || 1 })}
-              className="w-6 text-[#213447] text-base font-normal bg-transparent border-none outline-none text-center"
+              className="w-8 text-[#213447] text-base font-normal bg-transparent border-none outline-none text-center"
             />
             <span className="text-[#213447] text-base font-normal">:</span>
             <input
@@ -218,25 +218,33 @@ export function DateTimePicker({ value, onChange, className }: DateTimePickerPro
               max="59"
               value={time.minute.toString().padStart(2, "0")}
               onChange={(e) => handleTimeChange({ minute: parseInt(e.target.value) || 0 })}
-              className="w-6 text-[#213447] text-base font-normal bg-transparent border-none outline-none text-center"
+              className="w-8 text-[#213447] text-base font-normal bg-transparent border-none outline-none text-center"
             />
           </div>
 
           {/* AM/PM Toggle */}
-          <div className="flex w-[101px] h-8 p-[2px] items-center rounded-[10px] bg-[#F0F3F7]">
+          <div className="flex w-[110px] h-10 p-1 items-center rounded-[10px] bg-[#F0F3F7]">
             <button
-              onClick={() => handleTimeChange({ period: "AM" })}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleTimeChange({ period: "AM" });
+              }}
               className={cn(
-                "flex h-7 px-2 justify-center items-center flex-1 rounded-lg",
+                "flex h-8 px-3 justify-center items-center flex-1 rounded-lg transition-all",
                 time.period === "AM" && "border border-black/[0.04] bg-white shadow-sm",
               )}
             >
               <span className="text-[#213447] text-center text-sm font-normal leading-4">AM</span>
             </button>
             <button
-              onClick={() => handleTimeChange({ period: "PM" })}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleTimeChange({ period: "PM" });
+              }}
               className={cn(
-                "flex h-7 px-2 justify-center items-center flex-1 rounded-lg",
+                "flex h-8 px-3 justify-center items-center flex-1 rounded-lg transition-all",
                 time.period === "PM" && "border border-black/[0.04] bg-white shadow-sm",
               )}
             >
