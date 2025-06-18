@@ -137,6 +137,7 @@ export default function Page() {
 
           {/* Inline Neutral */}
           <div className="space-y-4">
+            <h4 className="text-sm font-medium">Inline Neutral Banner</h4>
             <div>
               {!dismissedBanners.has("inline-neutral") && (
                 <Banner
@@ -150,7 +151,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="Inline Neutral Banner"
+              title="React Code"
               children={`<Banner
   layout="inline"
   variant="info-neutral"
