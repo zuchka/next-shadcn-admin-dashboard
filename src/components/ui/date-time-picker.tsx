@@ -171,11 +171,11 @@ export function DateTimePicker({ value, onChange, className }: DateTimePickerPro
             {calendarDays.slice(weekIndex * 7, (weekIndex + 1) * 7).map((day, dayIndex) => (
               <button
                 key={`${weekIndex}-${dayIndex}`}
-                onClick={() => handleDateSelect(day)}
+                onClick={(e) => handleDateSelect(day, e)}
                 className={cn(
-                  "flex w-8 h-8 justify-center items-center",
-                  day.isToday && !isDateSelected(day) && "rounded-full bg-[#BCCAD9]",
-                  isDateSelected(day) && "rounded-full bg-[#4C56BB]",
+                  "flex w-8 h-8 justify-center items-center hover:bg-gray-100 rounded-full transition-colors",
+                  day.isToday && !isDateSelected(day) && "bg-[#BCCAD9]",
+                  isDateSelected(day) && "bg-[#4C56BB]",
                 )}
               >
                 <span
