@@ -186,37 +186,13 @@ const BookingDialog = () => {
           </div>
 
           <div className="space-y-6">
-            <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-              <div className="flex flex-col w-1/2 max-md:w-full max-md:ml-0">
-                <div className="space-y-2">
-                  <Label>Date *</Label>
-                  <div className="border rounded-md p-2">
-                    <Calendar
-                      mode="single"
-                      selected={formData.date}
-                      onSelect={(date) => setFormData({ ...formData, date })}
-                      disabled={(date) => date < new Date()}
-                      className="w-full"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col w-1/2 ml-5 max-md:w-full max-md:ml-0">
-                <div className="space-y-2">
-                  <Label>Time *</Label>
-                  <Select onValueChange={(value) => setFormData({ ...formData, time: value })}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select time" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {timeSlots.map((time) => (
-                        <SelectItem key={time} value={time}>
-                          {time}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
+            <div className="space-y-2">
+              <Label>Date & Time *</Label>
+              <div className="flex justify-center">
+                <DateTimePicker
+                  value={formData.dateTime}
+                  onChange={(value) => setFormData({ ...formData, dateTime: value })}
+                />
               </div>
             </div>
             <div className="space-y-2">
