@@ -349,6 +349,7 @@ export default function Page() {
 
           {/* Block Warning */}
           <div className="space-y-4">
+            <h4 className="text-sm font-medium">Block Warning Banner</h4>
             <div>
               {!dismissedBanners.has("block-warning") && (
                 <Banner
@@ -363,7 +364,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="Block Warning Banner"
+              title="React Code"
               children={`<Banner
   variant="warning"
   heading="At the moment, we are unable to identify the cause of the connection problem."
