@@ -94,7 +94,7 @@ export const sidebarItems: NavGroup[] = [
       },
       {
         title: "Calendar",
-        url: "/calendar",
+        url: "/dashboard/calendar",
         icon: Calendar,
       },
       {
