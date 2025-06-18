@@ -289,6 +289,7 @@ export default function Page() {
 
           {/* Block Neutral */}
           <div className="space-y-4">
+            <h4 className="text-sm font-medium">Block Neutral Banner</h4>
             <div>
               {!dismissedBanners.has("block-neutral") && (
                 <Banner
@@ -303,7 +304,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="Block Neutral Banner"
+              title="React Code"
               children={`<Banner
   variant="info-neutral"
   heading="At the moment, we are unable to identify the cause of the connection problem."
