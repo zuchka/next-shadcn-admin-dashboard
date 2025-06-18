@@ -151,7 +151,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="React Code"
+              title="Code Snippet"
               children={`<Banner
   layout="inline"
   variant="info-neutral"
