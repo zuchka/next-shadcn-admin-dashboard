@@ -130,15 +130,26 @@ export function DateTimePicker({ value, onChange, className }: DateTimePickerPro
           <span className="text-[#4C56BB] text-center text-base font-medium">
             {MONTHS[currentMonth]} {currentYear}
           </span>
-          <button onClick={() => navigateMonth("next")} className="flex w-[30px] p-2 justify-center items-center">
-            <ChevronRight className="w-2 h-3.5 fill-[#4C56BB] text-[#4C56BB]" />
-          </button>
         </div>
-        <div className="flex items-start gap-[7px]">
-          <button onClick={() => navigateMonth("prev")} className="flex w-[30px] p-2 justify-center items-center">
+        <div className="flex items-center gap-1">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              navigateMonth("prev");
+            }}
+            className="flex w-[30px] p-2 justify-center items-center hover:bg-gray-50 rounded"
+          >
             <ChevronLeft className="w-2 h-3.5 fill-[#4C56BB] text-[#4C56BB]" />
           </button>
-          <button onClick={() => navigateMonth("next")} className="flex w-[30px] p-2 justify-center items-center">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              navigateMonth("next");
+            }}
+            className="flex w-[30px] p-2 justify-center items-center hover:bg-gray-50 rounded"
+          >
             <ChevronRight className="w-2 h-3.5 fill-[#4C56BB] text-[#4C56BB]" />
           </button>
         </div>
