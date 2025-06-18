@@ -125,7 +125,6 @@ const NavItemCollapsed = ({
                 <Link href={subItem.url} target={subItem.newTab ? "_blank" : undefined}>
                   {subItem.icon && <subItem.icon className="[&>svg]:text-sidebar-foreground" />}
                   <span>{subItem.title}</span>
-                  {subItem.comingSoon && <IsComingSoon />}
                 </Link>
               </SidebarMenuSubButton>
             </DropdownMenuItem>
