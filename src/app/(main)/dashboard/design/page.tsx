@@ -221,6 +221,7 @@ export default function Page() {
 
           {/* Inline Success */}
           <div className="space-y-4">
+            <h4 className="text-sm font-medium">Inline Success Banner</h4>
             <div>
               {!dismissedBanners.has("inline-success") && (
                 <Banner
@@ -234,7 +235,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="Inline Success Banner"
+              title="React Code"
               children={`<Banner
   layout="inline"
   variant="success"
