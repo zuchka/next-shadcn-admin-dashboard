@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Copy, Check } from "lucide-react";
-import { Banner } from "@/components/ui/banner";
+import { Banner } from "@/components/banner";
 
 const CodeBlock = ({ children, title }: { children: string; title: string }) => {
   const [copied, setCopied] = useState(false);
