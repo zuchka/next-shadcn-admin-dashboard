@@ -433,13 +433,14 @@ export default function Page() {
 
           {/* Without icon */}
           <div className="space-y-4">
+            <h4 className="text-sm font-medium">Banner without icon</h4>
             <div>
               <Banner variant="warning" showIcon={false} onDismiss={() => console.log("Dismissed")}>
                 This banner has no icon
               </Banner>
             </div>
             <CodeBlock
-              title="Banner without icon"
+              title="React Code"
               children={`<Banner variant="warning" showIcon={false} onDismiss={() => {}}>
   This banner has no icon
 </Banner>`}
