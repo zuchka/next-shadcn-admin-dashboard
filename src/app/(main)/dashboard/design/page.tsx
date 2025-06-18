@@ -417,13 +417,14 @@ export default function Page() {
 
           {/* Without dismiss button */}
           <div className="space-y-4">
+            <h4 className="text-sm font-medium">Banner without dismiss button</h4>
             <div>
               <Banner variant="info" showDismiss={false}>
                 This banner cannot be dismissed
               </Banner>
             </div>
             <CodeBlock
-              title="Banner without dismiss button"
+              title="React Code"
               children={`<Banner variant="info" showDismiss={false}>
   This banner cannot be dismissed
 </Banner>`}
