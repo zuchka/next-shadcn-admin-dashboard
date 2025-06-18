@@ -109,6 +109,7 @@ export default function Page() {
 
           {/* Inline Info */}
           <div className="space-y-4">
+            <h4 className="text-sm font-medium">Inline Info Banner</h4>
             <div>
               {!dismissedBanners.has("inline-info") && (
                 <Banner
@@ -122,7 +123,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="Inline Info Banner"
+              title="React Code"
               children={`<Banner
   layout="inline"
   variant="info"
