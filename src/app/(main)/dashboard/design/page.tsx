@@ -414,18 +414,18 @@ export default function Page() {
           </div>
 
           {/* Without actions */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <div>
+              <Banner variant="success" heading="Success!" onDismiss={() => console.log("Dismissed")}>
+                Operation completed successfully
+              </Banner>
+            </div>
             <CodeBlock
               title="Banner without actions"
               children={`<Banner variant="success" heading="Success!" onDismiss={() => {}}>
   Operation completed successfully
 </Banner>`}
             />
-            <div className="flex items-start pt-6">
-              <Banner variant="success" heading="Success!" onDismiss={() => console.log("Dismissed")}>
-                Operation completed successfully
-              </Banner>
-            </div>
           </div>
 
           {/* Custom className */}
