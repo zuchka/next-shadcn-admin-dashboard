@@ -119,6 +119,10 @@ export function DateTimePicker({ value, onChange, className }: DateTimePickerPro
 
   return (
     <div
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
       className={cn(
         "inline-flex p-3 flex-col items-start gap-2 rounded-2xl bg-white shadow-lg border border-gray-100",
         className,
