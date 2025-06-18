@@ -131,7 +131,7 @@ export function DateTimePicker({ value, onChange, className }: DateTimePickerPro
       {/* Calendar Header */}
       <div className="flex w-full justify-between items-center">
         <div className="flex items-center gap-1">
-          <span className="text-[#4C56BB] text-center text-base font-medium">
+          <span className="text-[#ea580c] text-center text-base font-medium">
             {MONTHS[currentMonth]} {currentYear}
           </span>
         </div>
@@ -142,9 +142,9 @@ export function DateTimePicker({ value, onChange, className }: DateTimePickerPro
               e.stopPropagation();
               navigateMonth("prev");
             }}
-            className="flex w-[30px] p-2 justify-center items-center hover:bg-gray-50 rounded"
+            className="flex w-[30px] p-2 justify-center items-center hover:bg-orange-50 rounded"
           >
-            <ChevronLeft className="w-2 h-3.5 fill-[#4C56BB] text-[#4C56BB]" />
+            <ChevronLeft className="w-2 h-3.5 fill-[#ea580c] text-[#ea580c]" />
           </button>
           <button
             onClick={(e) => {
@@ -152,9 +152,9 @@ export function DateTimePicker({ value, onChange, className }: DateTimePickerPro
               e.stopPropagation();
               navigateMonth("next");
             }}
-            className="flex w-[30px] p-2 justify-center items-center hover:bg-gray-50 rounded"
+            className="flex w-[30px] p-2 justify-center items-center hover:bg-orange-50 rounded"
           >
-            <ChevronRight className="w-2 h-3.5 fill-[#4C56BB] text-[#4C56BB]" />
+            <ChevronRight className="w-2 h-3.5 fill-[#ea580c] text-[#ea580c]" />
           </button>
         </div>
       </div>
