@@ -89,7 +89,9 @@ export function DateTimePicker({ value, onChange, className }: DateTimePickerPro
     });
   };
 
-  const handleDateSelect = (day: (typeof calendarDays)[0]) => {
+  const handleDateSelect = (day: (typeof calendarDays)[0], e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     setSelectedDate(day.fullDate);
     onChange?.({
       date: day.fullDate,
