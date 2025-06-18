@@ -399,18 +399,18 @@ export default function Page() {
           </div>
 
           {/* Without icon */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <div>
+              <Banner variant="warning" showIcon={false} onDismiss={() => console.log("Dismissed")}>
+                This banner has no icon
+              </Banner>
+            </div>
             <CodeBlock
               title="Banner without icon"
               children={`<Banner variant="warning" showIcon={false} onDismiss={() => {}}>
   This banner has no icon
 </Banner>`}
             />
-            <div className="flex items-start pt-6">
-              <Banner variant="warning" showIcon={false} onDismiss={() => console.log("Dismissed")}>
-                This banner has no icon
-              </Banner>
-            </div>
           </div>
 
           {/* Without actions */}
