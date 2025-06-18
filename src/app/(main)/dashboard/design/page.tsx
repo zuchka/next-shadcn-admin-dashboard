@@ -289,20 +289,8 @@ export default function Page() {
           </div>
 
           {/* Block Error */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <CodeBlock
-              title="Block Error Banner"
-              children={`<Banner
-  variant="error"
-  heading="At the moment, we are unable to identify the cause of the connection problem."
-  primaryAction={{ label: "Primary Action", onClick: () => {} }}
-  secondaryAction={{ label: "Secondary Action", onClick: () => {} }}
-  onDismiss={() => {}}
->
-  Get help from the Builder community. This is the best place to get technical assistance from the team
-</Banner>`}
-            />
-            <div className="flex items-start pt-6">
+          <div className="space-y-4">
+            <div>
               {!dismissedBanners.has("block-error") && (
                 <Banner
                   variant="error"
@@ -315,6 +303,18 @@ export default function Page() {
                 </Banner>
               )}
             </div>
+            <CodeBlock
+              title="Block Error Banner"
+              children={`<Banner
+  variant="error"
+  heading="At the moment, we are unable to identify the cause of the connection problem."
+  primaryAction={{ label: "Primary Action", onClick: () => {} }}
+  secondaryAction={{ label: "Secondary Action", onClick: () => {} }}
+  onDismiss={() => {}}
+>
+  Get help from the Builder community. This is the best place to get technical assistance from the team
+</Banner>`}
+            />
           </div>
 
           {/* Block Warning */}
