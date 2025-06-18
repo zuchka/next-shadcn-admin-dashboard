@@ -125,8 +125,7 @@ const BookingDialog = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
-    date: undefined as Date | undefined,
-    time: "",
+    dateTime: undefined as { date?: Date; time?: { hour: number; minute: number; period: "AM" | "PM" } } | undefined,
     duration: "",
     location: "",
     attendees: "",
