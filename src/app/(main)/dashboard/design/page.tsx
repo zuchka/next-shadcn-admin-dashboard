@@ -193,6 +193,7 @@ export default function Page() {
 
           {/* Inline Warning */}
           <div className="space-y-4">
+            <h4 className="text-sm font-medium">Inline Warning Banner</h4>
             <div>
               {!dismissedBanners.has("inline-warning") && (
                 <Banner
@@ -206,7 +207,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="Inline Warning Banner"
+              title="React Code"
               children={`<Banner
   layout="inline"
   variant="warning"
