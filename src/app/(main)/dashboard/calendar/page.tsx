@@ -140,8 +140,7 @@ const BookingDialog = () => {
     // Reset form
     setFormData({
       title: "",
-      date: undefined,
-      time: "",
+      dateTime: undefined,
       duration: "",
       location: "",
       attendees: "",
@@ -149,7 +148,7 @@ const BookingDialog = () => {
     });
   };
 
-  const isFormValid = formData.title && formData.date && formData.time && formData.duration;
+  const isFormValid = formData.title && formData.dateTime?.date && formData.dateTime?.time && formData.duration;
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
