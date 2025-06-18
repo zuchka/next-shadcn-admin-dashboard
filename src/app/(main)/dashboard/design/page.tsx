@@ -465,13 +465,14 @@ export default function Page() {
 
           {/* Custom className */}
           <div className="space-y-4">
+            <h4 className="text-sm font-medium">Banner with custom styling</h4>
             <div>
               <Banner variant="error" className="border-2 border-dashed" onDismiss={() => console.log("Dismissed")}>
                 Custom styled banner with dashed border
               </Banner>
             </div>
             <CodeBlock
-              title="Banner with custom styling"
+              title="React Code"
               children={`<Banner variant="error" className="border-2 border-dashed" onDismiss={() => {}}>
   Custom styled banner with dashed border
 </Banner>`}
