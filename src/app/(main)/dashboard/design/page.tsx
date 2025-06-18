@@ -63,7 +63,7 @@ const BannerExample = ({ title, code, children }: { title: string; code: string;
   <div className="space-y-4">
     <h3 className="text-lg font-semibold">{title}</h3>
     <div className="space-y-4">
-      <CodeBlock title="React Code" children={code} />
+      <CodeBlock title="Code Snippet" children={code} />
       <div className="space-y-4">{children}</div>
     </div>
   </div>
@@ -179,7 +179,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="React Code"
+              title="Code Snippet"
               children={`<Banner
   layout="inline"
   variant="error"
@@ -207,7 +207,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="React Code"
+              title="Code Snippet"
               children={`<Banner
   layout="inline"
   variant="warning"
@@ -235,7 +235,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="React Code"
+              title="Code Snippet"
               children={`<Banner
   layout="inline"
   variant="success"
@@ -274,7 +274,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="React Code"
+              title="Code Snippet"
               children={`<Banner
   variant="info"
   heading="At the moment, we are unable to identify the cause of the connection problem."
@@ -304,7 +304,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="React Code"
+              title="Code Snippet"
               children={`<Banner
   variant="info-neutral"
   heading="At the moment, we are unable to identify the cause of the connection problem."
@@ -334,7 +334,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="React Code"
+              title="Code Snippet"
               children={`<Banner
   variant="error"
   heading="At the moment, we are unable to identify the cause of the connection problem."
@@ -364,7 +364,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="React Code"
+              title="Code Snippet"
               children={`<Banner
   variant="warning"
   heading="At the moment, we are unable to identify the cause of the connection problem."
@@ -394,7 +394,7 @@ export default function Page() {
               )}
             </div>
             <CodeBlock
-              title="React Code"
+              title="Code Snippet"
               children={`<Banner
   variant="success"
   heading="At the moment, we are unable to identify the cause of the connection problem."
@@ -424,7 +424,7 @@ export default function Page() {
               </Banner>
             </div>
             <CodeBlock
-              title="React Code"
+              title="Code Snippet"
               children={`<Banner variant="info" showDismiss={false}>
   This banner cannot be dismissed
 </Banner>`}
@@ -440,7 +440,7 @@ export default function Page() {
               </Banner>
             </div>
             <CodeBlock
-              title="React Code"
+              title="Code Snippet"
               children={`<Banner variant="warning" showIcon={false} onDismiss={() => {}}>
   This banner has no icon
 </Banner>`}
@@ -456,7 +456,7 @@ export default function Page() {
               </Banner>
             </div>
             <CodeBlock
-              title="React Code"
+              title="Code Snippet"
               children={`<Banner variant="success" heading="Success!" onDismiss={() => {}}>
   Operation completed successfully
 </Banner>`}
@@ -472,7 +472,7 @@ export default function Page() {
               </Banner>
             </div>
             <CodeBlock
-              title="React Code"
+              title="Code Snippet"
               children={`<Banner variant="error" className="border-2 border-dashed" onDismiss={() => {}}>
   Custom styled banner with dashed border
 </Banner>`}
