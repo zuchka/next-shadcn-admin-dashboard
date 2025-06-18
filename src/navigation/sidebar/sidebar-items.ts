@@ -15,6 +15,7 @@ import {
   Lock,
   Fingerprint,
   SquareArrowUpRight,
+  Palette,
   type LucideIcon,
 } from "lucide-react";
 
@@ -66,6 +67,11 @@ export const sidebarItems: NavGroup[] = [
     label: "Pages",
     items: [
       {
+        title: "Design System",
+        url: "/dashboard/design",
+        icon: Palette,
+      },
+      {
         title: "Authentication",
         url: "/auth",
         icon: Fingerprint,
@@ -88,9 +94,8 @@ export const sidebarItems: NavGroup[] = [
       },
       {
         title: "Calendar",
-        url: "/calendar",
+        url: "/dashboard/calendar",
         icon: Calendar,
-        comingSoon: true,
       },
       {
         title: "Kanban",

@@ -31,9 +31,7 @@ interface NavMainProps {
   readonly items: readonly NavGroup[];
 }
 
-const IsComingSoon = () => (
-  <span className="ml-auto rounded-md bg-gray-200 px-2 py-1 text-xs dark:text-gray-800">Soon</span>
-);
+
 
 const NavItemExpanded = ({
   item,
@@ -56,7 +54,6 @@ const NavItemExpanded = ({
             >
               {item.icon && <item.icon />}
               <span>{item.title}</span>
-              {item.comingSoon && <IsComingSoon />}
               <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
             </SidebarMenuButton>
           ) : (
@@ -69,7 +66,6 @@ const NavItemExpanded = ({
               <Link href={item.url} target={item.newTab ? "_blank" : undefined}>
                 {item.icon && <item.icon />}
                 <span>{item.title}</span>
-                {item.comingSoon && <IsComingSoon />}
               </Link>
             </SidebarMenuButton>
           )}
@@ -83,7 +79,6 @@ const NavItemExpanded = ({
                     <Link href={subItem.url} target={subItem.newTab ? "_blank" : undefined}>
                       {subItem.icon && <subItem.icon />}
                       <span>{subItem.title}</span>
-                      {subItem.comingSoon && <IsComingSoon />}
                     </Link>
                   </SidebarMenuSubButton>
                 </SidebarMenuSubItem>
@@ -103,6 +98,26 @@ const NavItemCollapsed = ({
   item: NavMainItem;
   isActive: (url: string, subItems?: NavMainItem["subItems"]) => boolean;
 }) => {
+  // If item has no subItems, render as a direct link
+  if (!item.subItems || item.subItems.length === 0) {
+    return (
+      <SidebarMenuItem key={item.title}>
+        <SidebarMenuButton
+          asChild
+          disabled={item.comingSoon}
+          tooltip={item.title}
+          isActive={isActive(item.url)}
+        >
+          <Link href={item.url} target={item.newTab ? "_blank" : undefined}>
+            {item.icon && <item.icon />}
+            <span>{item.title}</span>
+          </Link>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
+    );
+  }
+
+  // If item has subItems, render as dropdown
   return (
     <SidebarMenuItem key={item.title}>
       <DropdownMenu>
@@ -130,7 +145,6 @@ const NavItemCollapsed = ({
                 <Link href={subItem.url} target={subItem.newTab ? "_blank" : undefined}>
                   {subItem.icon && <subItem.icon className="[&>svg]:text-sidebar-foreground" />}
                   <span>{subItem.title}</span>
-                  {subItem.comingSoon && <IsComingSoon />}
                 </Link>
               </SidebarMenuSubButton>
             </DropdownMenuItem>
