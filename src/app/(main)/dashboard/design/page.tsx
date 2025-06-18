@@ -429,18 +429,18 @@ export default function Page() {
           </div>
 
           {/* Custom className */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <div>
+              <Banner variant="error" className="border-2 border-dashed" onDismiss={() => console.log("Dismissed")}>
+                Custom styled banner with dashed border
+              </Banner>
+            </div>
             <CodeBlock
               title="Banner with custom styling"
               children={`<Banner variant="error" className="border-2 border-dashed" onDismiss={() => {}}>
   Custom styled banner with dashed border
 </Banner>`}
             />
-            <div className="flex items-start pt-6">
-              <Banner variant="error" className="border-2 border-dashed" onDismiss={() => console.log("Dismissed")}>
-                Custom styled banner with dashed border
-              </Banner>
-            </div>
           </div>
         </div>
 
