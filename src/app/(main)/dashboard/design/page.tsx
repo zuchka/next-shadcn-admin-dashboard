@@ -6,6 +6,7 @@ import { Banner } from "@/components/ui/banner";
 
 const CodeBlock = ({ children, title }: { children: string; title: string }) => {
   const [copied, setCopied] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const copyToClipboard = async () => {
     try {
@@ -20,19 +21,40 @@ const CodeBlock = ({ children, title }: { children: string; title: string }) => 
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
-        <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{title}</h4>
         <button
-          onClick={copyToClipboard}
-          className="flex items-center gap-1 rounded-md px-2 py-1 text-xs text-muted-foreground hover:bg-muted/50 hover:text-foreground transition-colors"
-          title={copied ? "Copied!" : "Copy to clipboard"}
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="flex items-center gap-2 text-xs font-medium text-muted-foreground uppercase tracking-wider hover:text-foreground transition-colors"
         >
-          {copied ? <Check className="size-3" /> : <Copy className="size-3" />}
-          {copied ? "Copied!" : "Copy"}
+          <svg
+            className={`size-3 transition-transform ${isExpanded ? 'rotate-90' : ''}`}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+          {title}
         </button>
+        {isExpanded && (
+          <button
+            onClick={copyToClipboard}
+            className="flex items-center gap-1 rounded-md px-2 py-1 text-xs text-muted-foreground hover:bg-muted/50 hover:text-foreground transition-colors"
+            title={copied ? "Copied!" : "Copy to clipboard"}
+          >
+            {copied ? <Check className="size-3" /> : <Copy className="size-3" />}
+            {copied ? "Copied!" : "Copy"}
+          </button>
+        )}
       </div>
-      <pre className="bg-muted/50 rounded-lg p-3 text-xs overflow-x-auto">
-        <code>{children}</code>
-      </pre>
+      {isExpanded && (
+        <pre className="bg-muted/50 rounded-lg p-3 text-xs overflow-x-auto">
+          <code>{children}</code>
+        </pre>
+      )}
     </div>
   );
 };
@@ -41,7 +63,7 @@ const BannerExample = ({ title, code, children }: { title: string; code: string;
   <div className="space-y-4">
     <h3 className="text-lg font-semibold">{title}</h3>
     <div className="space-y-4">
-      <CodeBlock title="React Code" children={code} />
+      <CodeBlock title="Code Snippet" children={code} />
       <div className="space-y-4">{children}</div>
     </div>
   </div>
@@ -86,19 +108,9 @@ export default function Page() {
           </div>
 
           {/* Inline Info */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <CodeBlock
-              title="Inline Info Banner"
-              children={`<Banner
-  layout="inline"
-  variant="info"
-  primaryAction={{ label: "Primary Action", onClick: () => {} }}
-  onDismiss={() => {}}
->
-  Single line information with an action and dismiss option
-</Banner>`}
-            />
-            <div className="flex items-start pt-6">
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Inline Info Banner</h4>
+            <div>
               {!dismissedBanners.has("inline-info") && (
                 <Banner
                   layout="inline"
@@ -110,22 +122,23 @@ export default function Page() {
                 </Banner>
               )}
             </div>
-          </div>
-
-          {/* Inline Neutral */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
-              title="Inline Neutral Banner"
+              title="Code Snippet"
               children={`<Banner
   layout="inline"
-  variant="info-neutral"
+  variant="info"
   primaryAction={{ label: "Primary Action", onClick: () => {} }}
   onDismiss={() => {}}
 >
   Single line information with an action and dismiss option
 </Banner>`}
             />
-            <div className="flex items-start pt-6">
+          </div>
+
+          {/* Inline Neutral */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Inline Neutral Banner</h4>
+            <div>
               {!dismissedBanners.has("inline-neutral") && (
                 <Banner
                   layout="inline"
@@ -137,22 +150,23 @@ export default function Page() {
                 </Banner>
               )}
             </div>
-          </div>
-
-          {/* Inline Error */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
-              title="Inline Error Banner"
+              title="Code Snippet"
               children={`<Banner
   layout="inline"
-  variant="error"
+  variant="info-neutral"
   primaryAction={{ label: "Primary Action", onClick: () => {} }}
   onDismiss={() => {}}
 >
   Single line information with an action and dismiss option
 </Banner>`}
             />
-            <div className="flex items-start pt-6">
+          </div>
+
+          {/* Inline Error */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Inline Error Banner</h4>
+            <div>
               {!dismissedBanners.has("inline-error") && (
                 <Banner
                   layout="inline"
@@ -164,22 +178,23 @@ export default function Page() {
                 </Banner>
               )}
             </div>
-          </div>
-
-          {/* Inline Warning */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
-              title="Inline Warning Banner"
+              title="Code Snippet"
               children={`<Banner
   layout="inline"
-  variant="warning"
+  variant="error"
   primaryAction={{ label: "Primary Action", onClick: () => {} }}
   onDismiss={() => {}}
 >
   Single line information with an action and dismiss option
 </Banner>`}
             />
-            <div className="flex items-start pt-6">
+          </div>
+
+          {/* Inline Warning */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Inline Warning Banner</h4>
+            <div>
               {!dismissedBanners.has("inline-warning") && (
                 <Banner
                   layout="inline"
@@ -191,22 +206,23 @@ export default function Page() {
                 </Banner>
               )}
             </div>
-          </div>
-
-          {/* Inline Success */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
-              title="Inline Success Banner"
+              title="Code Snippet"
               children={`<Banner
   layout="inline"
-  variant="success"
+  variant="warning"
   primaryAction={{ label: "Primary Action", onClick: () => {} }}
   onDismiss={() => {}}
 >
   Single line information with an action and dismiss option
 </Banner>`}
             />
-            <div className="flex items-start pt-6">
+          </div>
+
+          {/* Inline Success */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Inline Success Banner</h4>
+            <div>
               {!dismissedBanners.has("inline-success") && (
                 <Banner
                   layout="inline"
@@ -218,6 +234,17 @@ export default function Page() {
                 </Banner>
               )}
             </div>
+            <CodeBlock
+              title="Code Snippet"
+              children={`<Banner
+  layout="inline"
+  variant="success"
+  primaryAction={{ label: "Primary Action", onClick: () => {} }}
+  onDismiss={() => {}}
+>
+  Single line information with an action and dismiss option
+</Banner>`}
+            />
           </div>
         </div>
 
@@ -231,20 +258,9 @@ export default function Page() {
           </div>
 
           {/* Block Info */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <CodeBlock
-              title="Block Info Banner"
-              children={`<Banner
-  variant="info"
-  heading="At the moment, we are unable to identify the cause of the connection problem."
-  primaryAction={{ label: "Primary Action", onClick: () => {} }}
-  secondaryAction={{ label: "Secondary Action", onClick: () => {} }}
-  onDismiss={() => {}}
->
-  Get help from the Builder community. This is the best place to get technical assistance from the team
-</Banner>`}
-            />
-            <div className="flex items-start pt-6">
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Block Info Banner</h4>
+            <div>
               {!dismissedBanners.has("block-info") && (
                 <Banner
                   variant="info"
@@ -257,14 +273,10 @@ export default function Page() {
                 </Banner>
               )}
             </div>
-          </div>
-
-          {/* Block Neutral */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
-              title="Block Neutral Banner"
+              title="Code Snippet"
               children={`<Banner
-  variant="info-neutral"
+  variant="info"
   heading="At the moment, we are unable to identify the cause of the connection problem."
   primaryAction={{ label: "Primary Action", onClick: () => {} }}
   secondaryAction={{ label: "Secondary Action", onClick: () => {} }}
@@ -273,7 +285,12 @@ export default function Page() {
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
             />
-            <div className="flex items-start pt-6">
+          </div>
+
+          {/* Block Neutral */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Block Neutral Banner</h4>
+            <div>
               {!dismissedBanners.has("block-neutral") && (
                 <Banner
                   variant="info-neutral"
@@ -286,14 +303,10 @@ export default function Page() {
                 </Banner>
               )}
             </div>
-          </div>
-
-          {/* Block Error */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
-              title="Block Error Banner"
+              title="Code Snippet"
               children={`<Banner
-  variant="error"
+  variant="info-neutral"
   heading="At the moment, we are unable to identify the cause of the connection problem."
   primaryAction={{ label: "Primary Action", onClick: () => {} }}
   secondaryAction={{ label: "Secondary Action", onClick: () => {} }}
@@ -302,7 +315,12 @@ export default function Page() {
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
             />
-            <div className="flex items-start pt-6">
+          </div>
+
+          {/* Block Error */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Block Error Banner</h4>
+            <div>
               {!dismissedBanners.has("block-error") && (
                 <Banner
                   variant="error"
@@ -315,14 +333,10 @@ export default function Page() {
                 </Banner>
               )}
             </div>
-          </div>
-
-          {/* Block Warning */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
-              title="Block Warning Banner"
+              title="Code Snippet"
               children={`<Banner
-  variant="warning"
+  variant="error"
   heading="At the moment, we are unable to identify the cause of the connection problem."
   primaryAction={{ label: "Primary Action", onClick: () => {} }}
   secondaryAction={{ label: "Secondary Action", onClick: () => {} }}
@@ -331,7 +345,12 @@ export default function Page() {
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
             />
-            <div className="flex items-start pt-6">
+          </div>
+
+          {/* Block Warning */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Block Warning Banner</h4>
+            <div>
               {!dismissedBanners.has("block-warning") && (
                 <Banner
                   variant="warning"
@@ -344,14 +363,10 @@ export default function Page() {
                 </Banner>
               )}
             </div>
-          </div>
-
-          {/* Block Success */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <CodeBlock
-              title="Block Success Banner"
+              title="Code Snippet"
               children={`<Banner
-  variant="success"
+  variant="warning"
   heading="At the moment, we are unable to identify the cause of the connection problem."
   primaryAction={{ label: "Primary Action", onClick: () => {} }}
   secondaryAction={{ label: "Secondary Action", onClick: () => {} }}
@@ -360,7 +375,12 @@ export default function Page() {
   Get help from the Builder community. This is the best place to get technical assistance from the team
 </Banner>`}
             />
-            <div className="flex items-start pt-6">
+          </div>
+
+          {/* Block Success */}
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Block Success Banner</h4>
+            <div>
               {!dismissedBanners.has("block-success") && (
                 <Banner
                   variant="success"
@@ -373,6 +393,18 @@ export default function Page() {
                 </Banner>
               )}
             </div>
+            <CodeBlock
+              title="Code Snippet"
+              children={`<Banner
+  variant="success"
+  heading="At the moment, we are unable to identify the cause of the connection problem."
+  primaryAction={{ label: "Primary Action", onClick: () => {} }}
+  secondaryAction={{ label: "Secondary Action", onClick: () => {} }}
+  onDismiss={() => {}}
+>
+  Get help from the Builder community. This is the best place to get technical assistance from the team
+</Banner>`}
+            />
           </div>
         </div>
 
@@ -384,63 +416,67 @@ export default function Page() {
           </div>
 
           {/* Without dismiss button */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <CodeBlock
-              title="Banner without dismiss button"
-              children={`<Banner variant="info" showDismiss={false}>
-  This banner cannot be dismissed
-</Banner>`}
-            />
-            <div className="flex items-start pt-6">
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Banner without dismiss button</h4>
+            <div>
               <Banner variant="info" showDismiss={false}>
                 This banner cannot be dismissed
               </Banner>
             </div>
+            <CodeBlock
+              title="Code Snippet"
+              children={`<Banner variant="info" showDismiss={false}>
+  This banner cannot be dismissed
+</Banner>`}
+            />
           </div>
 
           {/* Without icon */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <CodeBlock
-              title="Banner without icon"
-              children={`<Banner variant="warning" showIcon={false} onDismiss={() => {}}>
-  This banner has no icon
-</Banner>`}
-            />
-            <div className="flex items-start pt-6">
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Banner without icon</h4>
+            <div>
               <Banner variant="warning" showIcon={false} onDismiss={() => console.log("Dismissed")}>
                 This banner has no icon
               </Banner>
             </div>
+            <CodeBlock
+              title="Code Snippet"
+              children={`<Banner variant="warning" showIcon={false} onDismiss={() => {}}>
+  This banner has no icon
+</Banner>`}
+            />
           </div>
 
           {/* Without actions */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <CodeBlock
-              title="Banner without actions"
-              children={`<Banner variant="success" heading="Success!" onDismiss={() => {}}>
-  Operation completed successfully
-</Banner>`}
-            />
-            <div className="flex items-start pt-6">
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Banner without actions</h4>
+            <div>
               <Banner variant="success" heading="Success!" onDismiss={() => console.log("Dismissed")}>
                 Operation completed successfully
               </Banner>
             </div>
+            <CodeBlock
+              title="Code Snippet"
+              children={`<Banner variant="success" heading="Success!" onDismiss={() => {}}>
+  Operation completed successfully
+</Banner>`}
+            />
           </div>
 
           {/* Custom className */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <CodeBlock
-              title="Banner with custom styling"
-              children={`<Banner variant="error" className="border-2 border-dashed" onDismiss={() => {}}>
-  Custom styled banner with dashed border
-</Banner>`}
-            />
-            <div className="flex items-start pt-6">
+          <div className="space-y-4">
+            <h4 className="text-sm font-medium">Banner with custom styling</h4>
+            <div>
               <Banner variant="error" className="border-2 border-dashed" onDismiss={() => console.log("Dismissed")}>
                 Custom styled banner with dashed border
               </Banner>
             </div>
+            <CodeBlock
+              title="Code Snippet"
+              children={`<Banner variant="error" className="border-2 border-dashed" onDismiss={() => {}}>
+  Custom styled banner with dashed border
+</Banner>`}
+            />
           </div>
         </div>
 
