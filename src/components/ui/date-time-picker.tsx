@@ -222,7 +222,7 @@ export function DateTimePicker({ value, onChange, className }: DateTimePickerPro
               max="59"
               value={time.minute.toString().padStart(2, "0")}
               onChange={(e) => handleTimeChange({ minute: parseInt(e.target.value) || 0 })}
-              className="w-8 text-[#213447] text-base font-normal bg-transparent border-none outline-none text-center"
+              className="w-8 text-[#213447] text-base font-normal bg-transparent border-none outline-none text-center mr-[10px]"
             />
           </div>
 
