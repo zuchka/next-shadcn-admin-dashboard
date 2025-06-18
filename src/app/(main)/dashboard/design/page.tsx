@@ -194,19 +194,8 @@ export default function Page() {
           </div>
 
           {/* Inline Success */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <CodeBlock
-              title="Inline Success Banner"
-              children={`<Banner
-  layout="inline"
-  variant="success"
-  primaryAction={{ label: "Primary Action", onClick: () => {} }}
-  onDismiss={() => {}}
->
-  Single line information with an action and dismiss option
-</Banner>`}
-            />
-            <div className="flex items-start pt-6">
+          <div className="space-y-4">
+            <div>
               {!dismissedBanners.has("inline-success") && (
                 <Banner
                   layout="inline"
@@ -218,6 +207,17 @@ export default function Page() {
                 </Banner>
               )}
             </div>
+            <CodeBlock
+              title="Inline Success Banner"
+              children={`<Banner
+  layout="inline"
+  variant="success"
+  primaryAction={{ label: "Primary Action", onClick: () => {} }}
+  onDismiss={() => {}}
+>
+  Single line information with an action and dismiss option
+</Banner>`}
+            />
           </div>
         </div>
 
