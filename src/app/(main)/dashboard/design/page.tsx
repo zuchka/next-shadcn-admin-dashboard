@@ -449,13 +449,14 @@ export default function Page() {
 
           {/* Without actions */}
           <div className="space-y-4">
+            <h4 className="text-sm font-medium">Banner without actions</h4>
             <div>
               <Banner variant="success" heading="Success!" onDismiss={() => console.log("Dismissed")}>
                 Operation completed successfully
               </Banner>
             </div>
             <CodeBlock
-              title="Banner without actions"
+              title="React Code"
               children={`<Banner variant="success" heading="Success!" onDismiss={() => {}}>
   Operation completed successfully
 </Banner>`}
