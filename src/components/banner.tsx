@@ -127,15 +127,15 @@ const getIcon = (variant: string) => {
   switch (variant) {
     case "info":
     case "info-neutral":
-      return Info;
+      return InfoIcon;
     case "error":
-      return AlertCircle;
+      return ErrorIcon;
     case "warning":
-      return AlertTriangle;
+      return WarningIcon;
     case "success":
-      return CheckCircle2;
+      return SuccessIcon;
     default:
-      return Info;
+      return InfoIcon;
   }
 };
 
