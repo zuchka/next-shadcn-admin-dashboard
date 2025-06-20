@@ -176,116 +176,50 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(
 
     return (
       <div ref={ref} className={cn(bannerVariants({ variant, layout }), className)} role="alert" {...props}>
-        {showIcon && <IconComponent className={cn(iconVariants({ variant }), "size-4 mt-0.5")} />}
+        {showIcon && <IconComponent className={cn(iconVariants({ variant }), "w-[18px] h-[18px] flex-shrink-0")} />}
 
         {layout === "inline" ? (
           <div className="flex flex-1 items-center gap-3 min-w-0">
-            <div className="text-sm leading-5 truncate">{children}</div>
-            {(primaryAction || secondaryAction) && (
+            <div className="text-sm leading-5 flex-1 text-[#333333]">{children}</div>
+            {primaryAction && (
               <div className="flex items-center gap-3 flex-shrink-0">
-                {primaryAction && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={primaryAction.onClick}
-                    className={cn(
-                      "h-8 border-gray-300 bg-transparent px-3 py-1.5 text-xs hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700",
-                      variant === "info" &&
-                        "border-blue-300 hover:bg-blue-100 dark:border-blue-600 dark:hover:bg-blue-800",
-                      variant === "error" &&
-                        "border-red-300 hover:bg-red-100 dark:border-red-600 dark:hover:bg-red-800",
-                      variant === "warning" &&
-                        "border-amber-300 hover:bg-amber-100 dark:border-amber-600 dark:hover:bg-amber-800",
-                      variant === "success" &&
-                        "border-green-300 hover:bg-green-100 dark:border-green-600 dark:hover:bg-green-800",
-                    )}
-                  >
-                    {primaryAction.label}
-                  </Button>
-                )}
-
-                {secondaryAction && (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={secondaryAction.onClick}
-                    className={cn(
-                      "h-8 px-3 py-1.5 text-xs hover:bg-transparent",
-                      variant === "info" &&
-                        "text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300",
-                      variant === "info-neutral" &&
-                        "text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300",
-                      variant === "error" &&
-                        "text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300",
-                      variant === "warning" &&
-                        "text-amber-600 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300",
-                      variant === "success" &&
-                        "text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300",
-                    )}
-                  >
-                    <Plus className="mr-1 size-3" />
-                    {secondaryAction.label}
-                  </Button>
-                )}
+                <button
+                  onClick={primaryAction.onClick}
+                  className="flex items-center justify-center gap-1 px-2 py-1.5 text-xs font-medium leading-4 border border-[#5C5C5C] rounded text-[#333333] hover:bg-gray-50 transition-colors"
+                >
+                  {primaryAction.label}
+                </button>
               </div>
             )}
           </div>
         ) : (
           <div className="flex-1 min-w-0">
-            {heading && (
-              <div className="mb-1">
-                <h4 className="text-sm font-semibold leading-5">{heading}</h4>
-              </div>
-            )}
+            <div className="flex flex-col gap-2">
+              {heading && (
+                <h4 className="text-sm font-semibold leading-5 text-[#333333]">{heading}</h4>
+              )}
 
-            <div className="text-sm leading-5 space-y-3">
-              {children}
+              <div className="text-sm leading-5 text-[#333333]">{children}</div>
 
               {(primaryAction || secondaryAction) && (
-                <div className="flex flex-wrap items-start gap-3">
+                <div className="flex items-start gap-3">
                   {primaryAction && (
-                    <Button
-                      variant="outline"
-                      size="sm"
+                    <button
                       onClick={primaryAction.onClick}
-                      className={cn(
-                        "h-8 border-gray-300 bg-transparent px-3 py-1.5 text-xs hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700",
-                        variant === "info" &&
-                          "border-blue-300 hover:bg-blue-100 dark:border-blue-600 dark:hover:bg-blue-800",
-                        variant === "error" &&
-                          "border-red-300 hover:bg-red-100 dark:border-red-600 dark:hover:bg-red-800",
-                        variant === "warning" &&
-                          "border-amber-300 hover:bg-amber-100 dark:border-amber-600 dark:hover:bg-amber-800",
-                        variant === "success" &&
-                          "border-green-300 hover:bg-green-100 dark:border-green-600 dark:hover:bg-green-800",
-                      )}
+                      className="flex items-center justify-center gap-1 px-2 py-1.5 text-sm font-medium leading-5 border border-[#5C5C5C] rounded text-[#333333] hover:bg-gray-50 transition-colors"
                     >
                       {primaryAction.label}
-                    </Button>
+                    </button>
                   )}
 
                   {secondaryAction && (
-                    <Button
-                      variant="ghost"
-                      size="sm"
+                    <button
                       onClick={secondaryAction.onClick}
-                      className={cn(
-                        "h-8 px-3 py-1.5 text-xs hover:bg-transparent",
-                        variant === "info" &&
-                          "text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300",
-                        variant === "info-neutral" &&
-                          "text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300",
-                        variant === "error" &&
-                          "text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300",
-                        variant === "warning" &&
-                          "text-amber-600 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300",
-                        variant === "success" &&
-                          "text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300",
-                      )}
+                      className="flex items-center justify-center gap-1 px-2 py-1.5 text-sm font-medium leading-5 rounded text-[#1A73EB] hover:bg-blue-50 transition-colors"
                     >
-                      <Plus className="mr-1 size-3" />
+                      <Plus className="w-3.5 h-3.5" />
                       {secondaryAction.label}
-                    </Button>
+                    </button>
                   )}
                 </div>
               )}
@@ -296,10 +230,16 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(
         {showDismiss && onDismiss && (
           <button
             onClick={onDismiss}
-            className="ml-auto flex-shrink-0 rounded p-1 hover:bg-black/5 dark:hover:bg-white/10"
+            className={cn(
+              "flex-shrink-0 rounded p-1 hover:bg-black/5 dark:hover:bg-white/10",
+              layout === "inline" ? "w-6 h-6" : "w-8 h-8"
+            )}
             aria-label="Dismiss"
           >
-            <X className="size-4 text-gray-500 dark:text-gray-400" />
+            <X className={cn(
+              "text-[#5C5C5C]",
+              layout === "inline" ? "w-4 h-4" : "w-5 h-5"
+            )} />
           </button>
         )}
       </div>
