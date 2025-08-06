@@ -169,10 +169,6 @@ const BookingDialog = () => {
             <div className="space-y-2">
               <Label>Date & Time *</Label>
               <div className="flex justify-center">
-                <DateTimePicker
-                  value={formData.dateTime}
-                  onChange={(value) => setFormData({ ...formData, dateTime: value })}
-                />
               </div>
             </div>
             <div className="space-y-2">
