@@ -291,42 +291,180 @@ export default function CalendarPage() {
 
   // Get events for the selected calendar date
   const getEventsForDate = (date: Date) => {
+    // Complete sample events that match the calendar
     const sampleEvents = [
       {
         id: "1",
         title: "Groomers appt.",
-        start: new Date(2024, 2, 1, 10, 0),
-        end: new Date(2024, 2, 1, 11, 0),
+        start: moment("2024-03-01 10:00").toDate(),
+        end: moment("2024-03-01 11:00").toDate(),
         type: "personal" as const,
       },
       {
         id: "2",
         title: "Meeting w/ Chris",
-        start: new Date(2024, 2, 3, 14, 0),
-        end: new Date(2024, 2, 3, 15, 0),
+        start: moment("2024-03-03 14:00").toDate(),
+        end: moment("2024-03-03 15:00").toDate(),
         type: "important" as const,
       },
       {
-        id: "15",
-        title: "Vaccine appt.",
-        start: new Date(2024, 2, 15, 10, 0),
-        end: new Date(2024, 2, 15, 10, 30),
+        id: "3",
+        title: "Lunch w/ Mom",
+        start: moment("2024-03-05 12:00").toDate(),
+        end: moment("2024-03-05 13:00").toDate(),
+        type: "fun" as const,
+      },
+      {
+        id: "4",
+        title: "Financial Advisor Meeting",
+        start: moment("2024-03-07 10:00").toDate(),
+        end: moment("2024-03-07 11:30").toDate(),
+        type: "important" as const,
+      },
+      {
+        id: "5",
+        title: "Interview w/ Figma",
+        start: moment("2024-03-08 14:00").toDate(),
+        end: moment("2024-03-08 15:00").toDate(),
+        type: "important" as const,
+      },
+      {
+        id: "6",
+        title: "Send follow-up email!",
+        start: moment("2024-03-08 16:00").toDate(),
+        end: moment("2024-03-08 16:30").toDate(),
         type: "personal" as const,
       },
       {
-        id: "16",
-        title: "Take Jake to dinner",
-        start: new Date(2024, 2, 15, 18, 0),
-        end: new Date(2024, 2, 15, 20, 0),
+        id: "7",
+        title: "Ashley's Choir Recital",
+        start: moment("2024-03-12 19:00").toDate(),
+        end: moment("2024-03-12 21:00").toDate(),
         type: "fun" as const,
+      },
+      {
+        id: "8",
+        title: "Budget for next month",
+        start: moment("2024-03-14 09:00").toDate(),
+        end: moment("2024-03-14 10:00").toDate(),
+        type: "important" as const,
+      },
+      {
+        id: "9",
+        title: "Vaccine appt.",
+        start: moment("2024-03-15 10:00").toDate(),
+        end: moment("2024-03-15 10:30").toDate(),
+        type: "personal" as const,
+      },
+      {
+        id: "10",
+        title: "Take Jake to dinner",
+        start: moment("2024-03-15 18:00").toDate(),
+        end: moment("2024-03-15 20:00").toDate(),
+        type: "fun" as const,
+      },
+      {
+        id: "11",
+        title: "St. Patrick's Day!",
+        start: moment("2024-03-17 12:00").toDate(),
+        end: moment("2024-03-17 23:59").toDate(),
+        type: "fun" as const,
+      },
+      {
+        id: "12",
+        title: "DMV appointment",
+        start: moment("2024-03-17 14:00").toDate(),
+        end: moment("2024-03-17 15:00").toDate(),
+        type: "important" as const,
+      },
+      {
+        id: "13",
+        title: "PTO day",
+        start: moment("2024-03-18").toDate(),
+        end: moment("2024-03-18 23:59").toDate(),
+        type: "personal" as const,
+      },
+      {
+        id: "14",
+        title: "Dinner with Kate and Dan",
+        start: moment("2024-03-20 19:00").toDate(),
+        end: moment("2024-03-20 22:00").toDate(),
+        type: "fun" as const,
+      },
+      {
+        id: "15",
+        title: "Important work meeting",
+        start: moment("2024-03-22 09:00").toDate(),
+        end: moment("2024-03-22 11:00").toDate(),
+        type: "important" as const,
+      },
+      {
+        id: "16",
+        title: "Costco trip",
+        start: moment("2024-03-22 15:00").toDate(),
+        end: moment("2024-03-22 17:00").toDate(),
+        type: "personal" as const,
+      },
+      {
+        id: "17",
+        title: "Fly to Japan",
+        start: moment("2024-03-25 06:00").toDate(),
+        end: moment("2024-03-25 20:00").toDate(),
+        type: "fun" as const,
+      },
+      {
+        id: "18",
+        title: "Hot dog eating contest",
+        start: moment("2024-03-26 14:00").toDate(),
+        end: moment("2024-03-26 16:00").toDate(),
+        type: "fun" as const,
+      },
+      {
+        id: "19",
+        title: "Meeting w/ architect",
+        start: moment("2024-03-26 10:00").toDate(),
+        end: moment("2024-03-26 11:30").toDate(),
+        type: "important" as const,
+      },
+      {
+        id: "20",
+        title: "Movie date night",
+        start: moment("2024-03-26 19:00").toDate(),
+        end: moment("2024-03-26 22:00").toDate(),
+        type: "fun" as const,
+      },
+      {
+        id: "21",
+        title: "Meeting w/ Mac",
+        start: moment("2024-03-28 10:00").toDate(),
+        end: moment("2024-03-28 11:00").toDate(),
+        type: "important" as const,
+      },
+      {
+        id: "22",
+        title: "Pick up Jerry from doc appt.",
+        start: moment("2024-03-29 15:00").toDate(),
+        end: moment("2024-03-29 16:00").toDate(),
+        type: "personal" as const,
+      },
+      {
+        id: "23",
+        title: "Radiohead concert",
+        start: moment("2024-03-29 20:00").toDate(),
+        end: moment("2024-03-29 23:00").toDate(),
+        type: "fun" as const,
+      },
+      {
+        id: "24",
+        title: "Learn something new",
+        start: moment("2024-03-31 09:00").toDate(),
+        end: moment("2024-03-31 12:00").toDate(),
+        type: "personal" as const,
       },
     ];
 
     return sampleEvents.filter(event => {
-      const eventDate = new Date(event.start);
-      return eventDate.getDate() === date.getDate() &&
-             eventDate.getMonth() === date.getMonth() &&
-             eventDate.getFullYear() === date.getFullYear();
+      return moment(event.start).isSame(moment(date), 'day');
     });
   };
 
