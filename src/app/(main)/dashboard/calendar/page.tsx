@@ -226,15 +226,18 @@ const BookingDialog = () => {
 
 export default function CalendarPage() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
+  const [selectedEvent, setSelectedEvent] = useState<MeetingEvent | null>(null);
+  const [isEventDetailOpen, setIsEventDetailOpen] = useState(false);
 
   const handleSelectEvent = (event: MeetingEvent) => {
-    console.log("Selected event:", event);
-    // You can implement event editing/viewing logic here
+    setSelectedEvent(event);
+    setIsEventDetailOpen(true);
   };
 
   const handleCreateEvent = (slot: { start: Date; end: Date }) => {
     console.log("Create event for slot:", slot);
     // You can implement event creation logic here
+    // For now, this could trigger the booking dialog with pre-filled times
   };
 
   return (
