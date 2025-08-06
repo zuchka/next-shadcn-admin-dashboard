@@ -241,6 +241,55 @@ export default function CalendarPage() {
     // For now, this could trigger the booking dialog with pre-filled times
   };
 
+  const handleDateChange = (date: Date) => {
+    setCalendarDate(date);
+  };
+
+  // Get events for the selected calendar date
+  const getEventsForDate = (date: Date) => {
+    const sampleEvents = [
+      {
+        id: "1",
+        title: "Groomers appt.",
+        start: new Date(2024, 2, 1, 10, 0),
+        end: new Date(2024, 2, 1, 11, 0),
+        type: "personal" as const,
+      },
+      {
+        id: "2",
+        title: "Meeting w/ Chris",
+        start: new Date(2024, 2, 3, 14, 0),
+        end: new Date(2024, 2, 3, 15, 0),
+        type: "important" as const,
+      },
+      {
+        id: "15",
+        title: "Vaccine appt.",
+        start: new Date(2024, 2, 15, 10, 0),
+        end: new Date(2024, 2, 15, 10, 30),
+        type: "personal" as const,
+      },
+      {
+        id: "16",
+        title: "Take Jake to dinner",
+        start: new Date(2024, 2, 15, 18, 0),
+        end: new Date(2024, 2, 15, 20, 0),
+        type: "fun" as const,
+      },
+    ];
+
+    return sampleEvents.filter(event => {
+      const eventDate = new Date(event.start);
+      return eventDate.getDate() === date.getDate() &&
+             eventDate.getMonth() === date.getMonth() &&
+             eventDate.getFullYear() === date.getFullYear();
+    });
+  };
+
+  const selectedDateEvents = getEventsForDate(calendarDate);
+  const isToday = calendarDate.toDateString() === new Date().toDateString();
+  const dateLabel = isToday ? "Today's Events" : `Events for ${calendarDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}`;
+
   return (
     <div className="@container/main flex flex-col gap-6 md:gap-8">
       {/* Header */}
