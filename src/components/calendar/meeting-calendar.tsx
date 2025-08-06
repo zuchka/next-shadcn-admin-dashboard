@@ -285,16 +285,8 @@ export function MeetingCalendar({
 
   const handleDayClick = (date: Date, dayEvents: MeetingEvent[]) => {
     handleDateChange(date);
-    if (dayEvents.length === 1) {
-      // If only one event, open it directly
-      onSelectEvent?.(dayEvents[0]);
-    } else if (dayEvents.length > 1) {
-      // If multiple events, could switch to day view or show a list
-      setView("day");
-    } else {
-      // No events, could create new event
-      onCreateEvent?.({ start: date, end: moment(date).add(1, 'hour').toDate() });
-    }
+    // Don't automatically switch views - let users use the view tabs
+    // Just update the selected date and events will show below
   };
 
   const eventStyleGetter = useCallback(
