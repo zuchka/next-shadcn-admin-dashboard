@@ -474,7 +474,7 @@ export function MeetingCalendar({
         }
 
         .meeting-calendar .rbc-month-view .rbc-row {
-          min-height: 85px;
+          min-height: 120px;
         }
 
         .meeting-calendar .rbc-date-cell a {
