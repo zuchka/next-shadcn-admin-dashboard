@@ -509,6 +509,21 @@ export function MeetingCalendar({
           text-decoration: none;
         }
 
+        /* Month view with event indicators */
+        .meeting-calendar .rbc-month-view .rbc-date-cell {
+          padding: 0;
+          height: 100%;
+        }
+
+        .meeting-calendar .rbc-month-view .rbc-row-content {
+          z-index: 1;
+          position: relative;
+        }
+
+        .meeting-calendar .rbc-month-view .rbc-date-cell > a {
+          display: none; /* Hide default date display since we're using custom component */
+        }
+
         /* Day and Week view improvements */
         .meeting-calendar .rbc-time-view .rbc-header {
           border-bottom: 1px solid #e5e7eb;
