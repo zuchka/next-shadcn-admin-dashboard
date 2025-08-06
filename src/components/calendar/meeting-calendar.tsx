@@ -621,7 +621,7 @@ export function MeetingCalendar({
       
       <Calendar
         localizer={localizer}
-        events={view === "month" ? [] : events} // Hide events in month view, show indicators instead
+        events={events} // Show events in all views including month view
         startAccessor="start"
         endAccessor="end"
         style={{ height: view === "month" ? 600 : view === "week" ? 500 : 400 }}
@@ -636,21 +636,15 @@ export function MeetingCalendar({
         eventPropGetter={eventStyleGetter}
         formats={formats}
         onSelectEvent={onSelectEvent}
-        onSelectSlot={onCreateEvent}
+        onSelectSlot={(slot) => {
+          handleDateChange(slot.start);
+          onCreateEvent?.(slot);
+        }}
         selectable
         popup={false}
         showMultiDayTimes={false}
         components={{
           toolbar: customToolbar,
-          month: {
-            dateHeader: ({ date, label }: { date: Date; label: string }) => (
-              <MonthDateCell
-                date={date}
-                events={events}
-                onDayClick={handleDayClick}
-              />
-            ),
-          },
         }}
         messages={{
           showMore: (total) => `view more`,
