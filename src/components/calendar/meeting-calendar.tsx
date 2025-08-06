@@ -230,7 +230,7 @@ export function MeetingCalendar({
           fontSize: "8px",
           fontWeight: "400",
           padding: "2px 4px",
-          fontFamily: "Lato, -apple-system, Roboto, Helvetica, sans-serif",
+          fontFamily: "var(--font-lato), Lato, -apple-system, Roboto, Helvetica, sans-serif",
         },
         className: cn(colors.bg, colors.text),
       };
