@@ -364,7 +364,7 @@ export function MeetingCalendar({
           font-size: 8px;
           line-height: 1.25;
           font-weight: 400;
-          font-family: 'Lato', -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: var(--font-lato), 'Lato', -apple-system, Roboto, Helvetica, sans-serif;
         }
         
         .meeting-calendar .rbc-event:focus {
