@@ -228,6 +228,7 @@ export default function CalendarPage() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
   const [selectedEvent, setSelectedEvent] = useState<MeetingEvent | null>(null);
   const [isEventDetailOpen, setIsEventDetailOpen] = useState(false);
+  const [calendarDate, setCalendarDate] = useState<Date>(new Date(2024, 2, 15)); // Track calendar's current date
 
   const handleSelectEvent = (event: MeetingEvent) => {
     setSelectedEvent(event);
