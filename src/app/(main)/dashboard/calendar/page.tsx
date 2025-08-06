@@ -361,7 +361,7 @@ export default function CalendarPage() {
             ))
           ) : (
             <div className="col-span-full text-center py-8 text-muted-foreground">
-              <Calendar className="mx-auto h-12 w-12 mb-4 opacity-50" />
+              <CalendarLucideIcon className="mx-auto h-12 w-12 mb-4 opacity-50" />
               <p>No events scheduled for this day</p>
             </div>
           )}
