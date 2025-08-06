@@ -211,7 +211,7 @@ interface MeetingCalendarProps {
   onDateChange?: (date: Date) => void;
 }
 
-// Custom month date cell component that shows event indicators
+// Custom month date cell component that shows event list with titles
 const MonthDateCell = ({
   date,
   events,
@@ -225,46 +225,45 @@ const MonthDateCell = ({
     moment(event.start).isSame(date, 'day')
   );
 
-  const eventColors = {
-    important: "#EF4444", // Red - High priority sales/client meetings
-    work: "#F97316", // Orange - Regular sales activities
-    fun: "#3B82F6", // Blue - Networking/team events
-    personal: "#6B7280" // Gray - Personal/misc
+  const eventTypeColors = {
+    important: "bg-red-100 text-red-800 border-red-200",
+    work: "bg-orange-100 text-orange-800 border-orange-200",
+    fun: "bg-blue-100 text-blue-800 border-blue-200",
+    personal: "bg-gray-100 text-gray-800 border-gray-200"
   };
 
   const isToday = moment(date).isSame(new Date(), 'day');
 
   return (
     <div
-      className={`h-full w-full relative flex flex-col items-center justify-start pt-1 cursor-pointer hover:bg-gray-50 ${
+      className={`h-full w-full relative flex flex-col items-start justify-start p-1 cursor-pointer hover:bg-gray-50 ${
         dayEvents.length > 0 ? 'hover:bg-blue-50' : ''
       }`}
       onClick={() => onDayClick?.(date, dayEvents)}
     >
-      <div className={`text-xs font-normal mb-1 ${
+      <div className={`text-xs font-normal mb-1 self-center ${
         isToday ? 'bg-[#252525] text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]' : ''
       }`}>
         {moment(date).format('D')}
       </div>
-      {dayEvents.length > 0 && (
-        <div className="flex flex-wrap gap-1 justify-center max-w-full">
-          {dayEvents.slice(0, 3).map((event, index) => (
-            <div
-              key={`${event.id}-${index}`}
-              className="w-2.5 h-2.5 rounded-full shadow-sm"
-              style={{ backgroundColor: eventColors[event.type] || eventColors.work }}
-              title={event.title}
-            />
-          ))}
-          {dayEvents.length > 3 && (
-            <div
-              className="w-2.5 h-2.5 rounded-full shadow-sm"
-              style={{ backgroundColor: "#9CA3AF" }}
-              title={`+${dayEvents.length - 3} more events`}
-            />
-          )}
-        </div>
-      )}
+      <div className="w-full space-y-0.5 overflow-hidden">
+        {dayEvents.slice(0, 4).map((event, index) => (
+          <div
+            key={`${event.id}-${index}`}
+            className={`text-[8px] px-1 py-0.5 rounded text-left truncate w-full border ${
+              eventTypeColors[event.type] || eventTypeColors.work
+            }`}
+            title={`${event.title} - ${moment(event.start).format('h:mm A')}`}
+          >
+            {event.title}
+          </div>
+        ))}
+        {dayEvents.length > 4 && (
+          <div className="text-[8px] text-gray-500 px-1">
+            +{dayEvents.length - 4} more
+          </div>
+        )}
+      </div>
     </div>
   );
 };
