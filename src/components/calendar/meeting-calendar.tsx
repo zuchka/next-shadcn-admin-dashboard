@@ -251,6 +251,10 @@ export function MeetingCalendar({
     () => ({
       monthHeaderFormat: "MMMM YYYY",
       dayHeaderFormat: "ddd",
+      weekdayFormat: "ddd M/D",
+      timeGutterFormat: "h A",
+      eventTimeRangeFormat: ({ start, end }: { start: Date; end: Date }) =>
+        `${moment(start).format("h:mm A")} - ${moment(end).format("h:mm A")}`,
       dayRangeHeaderFormat: ({ start, end }: { start: Date; end: Date }) =>
         `${moment(start).format("MMMM DD")} – ${moment(end).format("MMMM DD, YYYY")}`,
       agendaHeaderFormat: ({ start, end }: { start: Date; end: Date }) =>
