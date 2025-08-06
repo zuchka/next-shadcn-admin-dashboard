@@ -272,10 +272,16 @@ const MonthDateCell = ({
 export function MeetingCalendar({
   events = sampleEvents,
   onSelectEvent,
-  onCreateEvent
+  onCreateEvent,
+  onDateChange
 }: MeetingCalendarProps) {
   const [currentDate, setCurrentDate] = useState(new Date(2024, 2, 15)); // March 15, 2024 - has events
   const [view, setView] = useState<View>("month");
+
+  const handleDateChange = (date: Date) => {
+    setCurrentDate(date);
+    onDateChange?.(date);
+  };
 
   const handleDayClick = (date: Date, dayEvents: MeetingEvent[]) => {
     if (dayEvents.length === 1) {
