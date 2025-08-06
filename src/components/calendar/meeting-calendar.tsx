@@ -211,64 +211,6 @@ interface MeetingCalendarProps {
   onDateChange?: (date: Date) => void;
 }
 
-// Custom month date cell component that shows event indicators
-const MonthDateCell = ({
-  date,
-  events,
-  onDayClick
-}: {
-  date: Date;
-  events: MeetingEvent[];
-  onDayClick?: (date: Date, events: MeetingEvent[]) => void;
-}) => {
-  const dayEvents = events.filter(event =>
-    moment(event.start).isSame(date, 'day')
-  );
-
-  const eventColors = {
-    important: "#EF4444", // Red - High priority sales/client meetings
-    work: "#F97316", // Orange - Regular sales activities
-    fun: "#3B82F6", // Blue - Networking/team events
-    personal: "#6B7280" // Gray - Personal/misc
-  };
-
-  const isToday = moment(date).isSame(new Date(), 'day');
-
-  return (
-    <div
-      className={`h-full w-full relative flex flex-col items-center justify-start pt-1 cursor-pointer hover:bg-gray-50 ${
-        dayEvents.length > 0 ? 'hover:bg-blue-50' : ''
-      }`}
-      onClick={() => onDayClick?.(date, dayEvents)}
-    >
-      <div className={`text-xs font-normal mb-1 ${
-        isToday ? 'bg-[#252525] text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]' : ''
-      }`}>
-        {moment(date).format('D')}
-      </div>
-      {dayEvents.length > 0 && (
-        <div className="flex flex-wrap gap-1 justify-center max-w-full">
-          {dayEvents.slice(0, 3).map((event, index) => (
-            <div
-              key={`${event.id}-${index}`}
-              className="w-2.5 h-2.5 rounded-full shadow-sm"
-              style={{ backgroundColor: eventColors[event.type] || eventColors.work }}
-              title={event.title}
-            />
-          ))}
-          {dayEvents.length > 3 && (
-            <div
-              className="w-2.5 h-2.5 rounded-full shadow-sm"
-              style={{ backgroundColor: "#9CA3AF" }}
-              title={`+${dayEvents.length - 3} more events`}
-            />
-          )}
-        </div>
-      )}
-    </div>
-  );
-};
-
 export function MeetingCalendar({
   events = sampleEvents,
   onSelectEvent,
