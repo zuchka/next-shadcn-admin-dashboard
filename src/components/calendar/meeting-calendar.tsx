@@ -225,10 +225,10 @@ const MonthDateCell = ({
   );
 
   const eventColors = {
-    personal: "#FEE6C9",
-    important: "#FFD9D9",
-    fun: "#D2F0FF",
-    work: "#f3f4f6"
+    personal: "#F97316", // Bright orange
+    important: "#EF4444", // Bright red
+    fun: "#3B82F6", // Bright blue
+    work: "#6B7280" // Gray
   };
 
   const isToday = moment(date).isSame(new Date(), 'day');
