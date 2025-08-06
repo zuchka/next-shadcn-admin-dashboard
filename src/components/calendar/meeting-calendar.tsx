@@ -637,8 +637,10 @@ export function MeetingCalendar({
         onView={setView}
         date={currentDate}
         onNavigate={(date, view, action) => {
-          setCurrentDate(date);
+          handleDateChange(date);
         }}
+        min={view === "day" ? moment().hour(6).minute(0).second(0).toDate() : undefined}
+        max={view === "day" ? moment().hour(22).minute(0).second(0).toDate() : undefined}
         eventPropGetter={eventStyleGetter}
         formats={formats}
         onSelectEvent={onSelectEvent}
