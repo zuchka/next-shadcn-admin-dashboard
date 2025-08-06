@@ -422,29 +422,33 @@ export function MeetingCalendar({
         
         .meeting-calendar .rbc-event {
           border: none !important;
-          border-radius: 2px;
-          padding: 2px 4px;
+          border-radius: 4px;
+          padding: 4px 6px;
           margin: 1px 2px;
-          font-size: 8px;
-          line-height: 1.25;
-          font-weight: 400;
+          font-size: 11px;
+          line-height: 1.3;
+          font-weight: 500;
           font-family: var(--font-lato), 'Lato', -apple-system, Roboto, Helvetica, sans-serif;
           cursor: pointer;
           transition: all 0.2s ease;
+          min-height: 18px;
+          display: flex;
+          align-items: center;
         }
 
         .meeting-calendar .rbc-event:hover {
           transform: translateY(-1px);
           box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        
+
         .meeting-calendar .rbc-event:focus {
           outline: none;
         }
-        
+
         .meeting-calendar .rbc-event-content {
-          font-size: 8px;
-          line-height: 1.25;
+          font-size: 11px;
+          line-height: 1.3;
+          font-weight: 500;
         }
         
         .meeting-calendar .rbc-show-more {
