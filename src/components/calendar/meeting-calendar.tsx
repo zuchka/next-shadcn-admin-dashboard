@@ -211,62 +211,6 @@ interface MeetingCalendarProps {
   onDateChange?: (date: Date) => void;
 }
 
-// Custom month date cell component that shows event list with titles
-const MonthDateCell = ({
-  date,
-  events,
-  onDayClick
-}: {
-  date: Date;
-  events: MeetingEvent[];
-  onDayClick?: (date: Date, events: MeetingEvent[]) => void;
-}) => {
-  const dayEvents = events.filter(event =>
-    moment(event.start).isSame(date, 'day')
-  );
-
-  const eventTypeColors = {
-    important: "bg-red-100 text-red-800 border-red-200",
-    work: "bg-orange-100 text-orange-800 border-orange-200",
-    fun: "bg-blue-100 text-blue-800 border-blue-200",
-    personal: "bg-gray-100 text-gray-800 border-gray-200"
-  };
-
-  const isToday = moment(date).isSame(new Date(), 'day');
-
-  return (
-    <div
-      className={`h-full w-full relative flex flex-col items-start justify-start p-1 cursor-pointer hover:bg-gray-50 ${
-        dayEvents.length > 0 ? 'hover:bg-blue-50' : ''
-      }`}
-      onClick={() => onDayClick?.(date, dayEvents)}
-    >
-      <div className={`text-xs font-normal mb-1 self-center ${
-        isToday ? 'bg-[#252525] text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]' : ''
-      }`}>
-        {moment(date).format('D')}
-      </div>
-      <div className="w-full space-y-0.5 overflow-hidden">
-        {dayEvents.slice(0, 4).map((event, index) => (
-          <div
-            key={`${event.id}-${index}`}
-            className={`text-[8px] px-1 py-0.5 rounded text-left truncate w-full border ${
-              eventTypeColors[event.type] || eventTypeColors.work
-            }`}
-            title={`${event.title} - ${moment(event.start).format('h:mm A')}`}
-          >
-            {event.title}
-          </div>
-        ))}
-        {dayEvents.length > 4 && (
-          <div className="text-[8px] text-gray-500 px-1">
-            +{dayEvents.length - 4} more
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
 
 export function MeetingCalendar({
   events = sampleEvents,
