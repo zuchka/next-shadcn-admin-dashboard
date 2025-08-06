@@ -220,6 +220,11 @@ export function MeetingCalendar({
   const [currentDate, setCurrentDate] = useState(new Date(2024, 2, 15)); // March 15, 2024 - has events
   const [view, setView] = useState<View>("month");
 
+  // Debug: Log events to console
+  console.log("MeetingCalendar events:", events);
+  console.log("Current date:", currentDate);
+  console.log("View:", view);
+
   const handleDateChange = (date: Date) => {
     setCurrentDate(date);
     onDateChange?.(date);
