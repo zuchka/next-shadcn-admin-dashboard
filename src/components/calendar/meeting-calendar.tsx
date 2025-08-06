@@ -408,7 +408,7 @@ export function MeetingCalendar({
         events={events}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 600 }}
+        style={{ height: 580 }}
         view={view}
         onView={setView}
         date={currentDate}
