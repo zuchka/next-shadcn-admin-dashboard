@@ -11,8 +11,8 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
 
-// Event types matching the Figma design color scheme
-export type EventType = "personal" | "important" | "fun" | "work";
+// Event types for CRM activities
+export type EventType = "important" | "work" | "fun" | "personal";
 
 export interface MeetingEvent extends Event {
   id: string;
