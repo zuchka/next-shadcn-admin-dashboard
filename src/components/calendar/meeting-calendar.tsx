@@ -215,7 +215,7 @@ export function MeetingCalendar({
   onSelectEvent, 
   onCreateEvent 
 }: MeetingCalendarProps) {
-  const [currentDate, setCurrentDate] = useState(new Date(2024, 2, 1)); // March 2024 to match Figma
+  const [currentDate, setCurrentDate] = useState(new Date(2024, 2, 15)); // March 15, 2024 - has events
   const [view, setView] = useState<View>("month");
 
   const eventStyleGetter = useCallback(
