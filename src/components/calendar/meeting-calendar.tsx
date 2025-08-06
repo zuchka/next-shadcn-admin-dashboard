@@ -467,6 +467,66 @@ export function MeetingCalendar({
         .meeting-calendar .rbc-date-cell a {
           text-decoration: none;
         }
+
+        /* Day and Week view improvements */
+        .meeting-calendar .rbc-time-view .rbc-header {
+          border-bottom: 1px solid #e5e7eb;
+          padding: 8px;
+          font-weight: 500;
+        }
+
+        .meeting-calendar .rbc-time-content {
+          border-top: none;
+        }
+
+        .meeting-calendar .rbc-time-slot {
+          border-top: 1px solid #f3f4f6;
+        }
+
+        .meeting-calendar .rbc-time-slot:first-child {
+          border-top: none;
+        }
+
+        .meeting-calendar .rbc-day-slot .rbc-time-slot {
+          height: 40px;
+        }
+
+        .meeting-calendar .rbc-time-header-content {
+          border-left: 1px solid #e5e7eb;
+        }
+
+        .meeting-calendar .rbc-time-header-content:first-child {
+          border-left: none;
+        }
+
+        .meeting-calendar .rbc-day-bg + .rbc-day-bg {
+          border-left: 1px solid #e5e7eb;
+        }
+
+        /* Week view specific */
+        .meeting-calendar .rbc-time-view .rbc-allday-cell {
+          background: #f9fafb;
+          border-bottom: 1px solid #e5e7eb;
+        }
+
+        /* Current time indicator */
+        .meeting-calendar .rbc-current-time-indicator {
+          background-color: #ef4444;
+          height: 2px;
+          z-index: 3;
+        }
+
+        /* Event improvements for time views */
+        .meeting-calendar .rbc-time-view .rbc-event {
+          font-size: 11px;
+          padding: 4px 6px;
+          border-left: 3px solid rgba(0,0,0,0.2);
+        }
+
+        .meeting-calendar .rbc-time-view .rbc-event-content {
+          font-size: 11px;
+          font-weight: 500;
+        }
       `}</style>
       
       <Calendar
