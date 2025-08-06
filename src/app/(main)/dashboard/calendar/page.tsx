@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { CalendarIcon, Clock, MapPin, Users, Plus, Calendar } from "lucide-react";
+import { CalendarIcon, Clock, MapPin, Users, Plus, Calendar as CalendarLucideIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
 import { DateTimePicker } from "@/components/ui/date-time-picker";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
