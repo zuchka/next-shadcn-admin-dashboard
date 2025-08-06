@@ -252,9 +252,10 @@ export function MeetingCalendar({
 
   const customToolbar = ({ label, onNavigate }: any) => (
     <div className="flex items-center justify-between mb-6">
-      <div className="flex items-center gap-3">
-        <h2 className="text-3xl font-bold text-[#252525]">
-          {moment(currentDate).format("MMMM")} <span className="font-normal">{moment(currentDate).format("YYYY")}</span>
+      <div className="flex items-center gap-3 bg-white p-3 rounded">
+        <h2 className="text-[28px] leading-[35px] text-[#252525] font-[var(--font-lato)]">
+          <span className="font-black">{moment(currentDate).format("MMMM")}</span>
+          <span className="ml-3 font-normal">{moment(currentDate).format("YYYY")}</span>
         </h2>
       </div>
       <div className="flex items-center gap-2">
@@ -266,7 +267,7 @@ export function MeetingCalendar({
             setCurrentDate(newDate);
             onNavigate("PREV");
           }}
-          className="h-6 w-6 p-0 hover:bg-gray-100"
+          className="h-6 w-6 p-0 hover:bg-gray-100 flex items-center justify-center"
         >
           <ChevronLeft className="h-4 w-4" />
         </Button>
@@ -278,7 +279,7 @@ export function MeetingCalendar({
             setCurrentDate(newDate);
             onNavigate("NEXT");
           }}
-          className="h-6 w-6 p-0 hover:bg-gray-100"
+          className="h-6 w-6 p-0 hover:bg-gray-100 flex items-center justify-center"
         >
           <ChevronRight className="h-4 w-4" />
         </Button>
