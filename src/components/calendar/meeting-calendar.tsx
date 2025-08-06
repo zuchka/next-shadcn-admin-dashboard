@@ -225,11 +225,6 @@ export function MeetingCalendar({
     onDateChange?.(date);
   };
 
-  const handleDayClick = (date: Date, dayEvents: MeetingEvent[]) => {
-    handleDateChange(date);
-    // Don't automatically switch views - let users use the view tabs
-    // Just update the selected date and events will show below
-  };
 
   const eventStyleGetter = useCallback(
     (event: MeetingEvent) => {
