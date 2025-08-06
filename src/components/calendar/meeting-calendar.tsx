@@ -228,10 +228,10 @@ export function MeetingCalendar({
   const eventStyleGetter = useCallback(
     (event: MeetingEvent) => {
       const colorMap = {
-        important: { bg: "#FFD9D9", color: "#000" }, // Light red for important meetings
-        work: { bg: "#FEE6C9", color: "#000" }, // Light orange for work activities
-        fun: { bg: "#D2F0FF", color: "#000" }, // Light blue for networking/fun
-        personal: { bg: "#f3f4f6", color: "#000" }, // Light gray for personal
+        important: { bg: "#fecaca", color: "#7f1d1d" }, // Light red for important meetings
+        work: { bg: "#fed7aa", color: "#7c2d12" }, // Light orange for work activities
+        fun: { bg: "#bfdbfe", color: "#1e3a8a" }, // Light blue for networking/fun
+        personal: { bg: "#e5e7eb", color: "#374151" }, // Light gray for personal
       };
 
       const colors = colorMap[event.type] || colorMap.work;
