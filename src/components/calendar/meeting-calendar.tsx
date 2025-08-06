@@ -410,7 +410,7 @@ export function MeetingCalendar({
             size="sm"
             onClick={() => {
               const newDate = moment(currentDate).add(1, view === "month" ? "month" : view === "week" ? "week" : "day").toDate();
-              setCurrentDate(newDate);
+              handleDateChange(newDate);
               onNavigate("NEXT");
             }}
             className="h-8 w-8 p-0 hover:bg-gray-100 flex items-center justify-center"
