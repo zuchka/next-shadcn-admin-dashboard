@@ -399,7 +399,15 @@ export function MeetingCalendar({
         }
 
         .meeting-calendar .rbc-month-view .rbc-row {
-          min-height: 90px;
+          min-height: 85px;
+        }
+
+        .meeting-calendar .rbc-row-content {
+          padding: 2px;
+        }
+
+        .meeting-calendar .rbc-date-cell a {
+          text-decoration: none;
         }
       `}</style>
       
