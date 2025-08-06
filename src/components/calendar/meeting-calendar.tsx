@@ -246,18 +246,19 @@ const MonthDateCell = ({
         {moment(date).format('D')}
       </div>
       {dayEvents.length > 0 && (
-        <div className="flex flex-wrap gap-0.5 justify-center max-w-full">
+        <div className="flex flex-wrap gap-1 justify-center max-w-full">
           {dayEvents.slice(0, 3).map((event, index) => (
             <div
               key={`${event.id}-${index}`}
-              className="w-1.5 h-1.5 rounded-full border border-gray-200"
+              className="w-2.5 h-2.5 rounded-full shadow-sm"
               style={{ backgroundColor: eventColors[event.type] || eventColors.work }}
               title={event.title}
             />
           ))}
           {dayEvents.length > 3 && (
             <div
-              className="w-1.5 h-1.5 rounded-full bg-gray-400 border border-gray-200"
+              className="w-2.5 h-2.5 rounded-full shadow-sm"
+              style={{ backgroundColor: "#9CA3AF" }}
               title={`+${dayEvents.length - 3} more events`}
             />
           )}
