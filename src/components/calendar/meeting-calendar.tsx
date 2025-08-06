@@ -258,37 +258,80 @@ export function MeetingCalendar({
           <span className="ml-3 font-normal">{moment(currentDate).format("YYYY")}</span>
         </h2>
       </div>
-      <div className="flex items-center gap-2">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => {
-            const newDate = moment(currentDate).subtract(1, "month").toDate();
-            setCurrentDate(newDate);
-            onNavigate("PREV");
-          }}
-          className="h-6 w-6 p-0 hover:bg-gray-100 flex items-center justify-center"
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </Button>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => {
-            const newDate = moment(currentDate).add(1, "month").toDate();
-            setCurrentDate(newDate);
-            onNavigate("NEXT");
-          }}
-          className="h-6 w-6 p-0 hover:bg-gray-100 flex items-center justify-center"
-        >
-          <ChevronRight className="h-4 w-4" />
-        </Button>
+      <div className="flex items-center gap-3">
+        {/* View Selector */}
+        <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1">
+          <Button
+            variant={view === "month" ? "default" : "ghost"}
+            size="sm"
+            onClick={() => setView("month")}
+            className="h-8 px-3 text-xs"
+          >
+            Month
+          </Button>
+          <Button
+            variant={view === "week" ? "default" : "ghost"}
+            size="sm"
+            onClick={() => setView("week")}
+            className="h-8 px-3 text-xs"
+          >
+            Week
+          </Button>
+          <Button
+            variant={view === "day" ? "default" : "ghost"}
+            size="sm"
+            onClick={() => setView("day")}
+            className="h-8 px-3 text-xs"
+          >
+            Day
+          </Button>
+        </div>
+
+        {/* Navigation */}
+        <div className="flex items-center gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              const today = new Date();
+              setCurrentDate(today);
+              onNavigate("TODAY");
+            }}
+            className="h-8 px-3 text-xs"
+          >
+            Today
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => {
+              const newDate = moment(currentDate).subtract(1, view === "month" ? "month" : view === "week" ? "week" : "day").toDate();
+              setCurrentDate(newDate);
+              onNavigate("PREV");
+            }}
+            className="h-8 w-8 p-0 hover:bg-gray-100 flex items-center justify-center"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => {
+              const newDate = moment(currentDate).add(1, view === "month" ? "month" : view === "week" ? "week" : "day").toDate();
+              setCurrentDate(newDate);
+              onNavigate("NEXT");
+            }}
+            className="h-8 w-8 p-0 hover:bg-gray-100 flex items-center justify-center"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </div>
       </div>
     </div>
   );
 
   return (
-    <div className="meeting-calendar bg-white rounded-lg border p-12" style={{ width: "816px", maxWidth: "100%" }}>
+    <div className="meeting-calendar bg-white rounded-lg border p-6 w-full">
       <style jsx global>{`
         .meeting-calendar .rbc-calendar {
           font-family: var(--font-lato), 'Lato', -apple-system, Roboto, Helvetica, sans-serif;
@@ -357,7 +400,6 @@ export function MeetingCalendar({
         }
         
         .meeting-calendar .rbc-event {
-          background: transparent !important;
           border: none !important;
           border-radius: 2px;
           padding: 2px 4px;
@@ -366,6 +408,13 @@ export function MeetingCalendar({
           line-height: 1.25;
           font-weight: 400;
           font-family: var(--font-lato), 'Lato', -apple-system, Roboto, Helvetica, sans-serif;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .meeting-calendar .rbc-event:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .meeting-calendar .rbc-event:focus {
@@ -416,7 +465,7 @@ export function MeetingCalendar({
         events={events}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 580 }}
+        style={{ height: view === "month" ? 600 : view === "week" ? 500 : 400 }}
         view={view}
         onView={setView}
         date={currentDate}
