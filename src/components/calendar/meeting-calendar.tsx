@@ -220,19 +220,28 @@ export function MeetingCalendar({
 
   const eventStyleGetter = useCallback(
     (event: MeetingEvent) => {
-      const colors = eventTypeColors[event.type] || eventTypeColors.work;
+      const colorMap = {
+        personal: { bg: "#FEE6C9", color: "#000" },
+        important: { bg: "#FFD9D9", color: "#000" },
+        fun: { bg: "#D2F0FF", color: "#000" },
+        work: { bg: "#f3f4f6", color: "#000" },
+      };
+
+      const colors = colorMap[event.type] || colorMap.work;
+
       return {
         style: {
-          backgroundColor: "transparent",
+          backgroundColor: colors.bg,
           border: "none",
           borderRadius: "2px",
-          color: "#000",
+          color: colors.color,
           fontSize: "8px",
           fontWeight: "400",
           padding: "2px 4px",
           fontFamily: "var(--font-lato), Lato, -apple-system, Roboto, Helvetica, sans-serif",
+          cursor: "pointer",
+          transition: "all 0.2s ease",
         },
-        className: cn(colors.bg, colors.text),
       };
     },
     []
