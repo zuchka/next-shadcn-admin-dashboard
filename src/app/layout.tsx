@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Lato } from "next/font/google";
 
 import { ThemeProvider } from "next-themes";
 
@@ -11,6 +11,11 @@ import { APP_CONFIG } from "@/config/app-config";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["300", "400", "700", "900"],
+  variable: "--font-lato"
+});
 
 export const metadata: Metadata = {
   title: APP_CONFIG.meta.title,
