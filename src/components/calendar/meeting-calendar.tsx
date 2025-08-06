@@ -620,10 +620,10 @@ export function MeetingCalendar({
       
       <Calendar
         localizer={localizer}
-        events={view === "month" ? [] : events} // Hide events in month view, show indicators instead
+        events={events}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: view === "month" ? 600 : view === "week" ? 500 : 400 }}
+        style={{ height: view === "month" ? 650 : view === "week" ? 500 : 400 }}
         view={view}
         onView={setView}
         date={currentDate}
@@ -652,7 +652,7 @@ export function MeetingCalendar({
           },
         }}
         messages={{
-          showMore: (total) => `view more`,
+          showMore: (total) => `+${total} more`,
         }}
       />
     </div>
