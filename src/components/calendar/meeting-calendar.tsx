@@ -386,7 +386,7 @@ export function MeetingCalendar({
             size="sm"
             onClick={() => {
               const today = new Date();
-              setCurrentDate(today);
+              handleDateChange(today);
               onNavigate("TODAY");
             }}
             className="h-8 px-3 text-xs"
