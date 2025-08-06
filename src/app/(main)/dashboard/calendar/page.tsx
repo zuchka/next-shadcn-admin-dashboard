@@ -102,6 +102,50 @@ const EventCard = ({ event }: { event: (typeof mockEvents)[0] }) => {
   );
 };
 
+// Dynamic event card for calendar events
+const CalendarEventCard = ({ event }: { event: { id: string; title: string; start: Date; end: Date; type: string } }) => {
+  const getEventColor = (type: string) => {
+    switch (type) {
+      case "personal":
+        return "bg-orange-100 border-orange-200 text-orange-800";
+      case "important":
+        return "bg-red-100 border-red-200 text-red-800";
+      case "fun":
+        return "bg-blue-100 border-blue-200 text-blue-800";
+      default:
+        return "bg-gray-100 border-gray-200 text-gray-800";
+    }
+  };
+
+  const formatTime = (date: Date) => {
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  };
+
+  const duration = Math.round((event.end.getTime() - event.start.getTime()) / (1000 * 60));
+  const durationText = duration >= 60 ? `${Math.floor(duration / 60)}h ${duration % 60}m` : `${duration}m`;
+
+  return (
+    <Card className={`transition-all hover:shadow-md ${getEventColor(event.type)}`}>
+      <CardContent className="p-4">
+        <div className="flex items-start justify-between">
+          <div className="space-y-2">
+            <h4 className="font-medium leading-none">{event.title}</h4>
+            <div className="flex items-center gap-4 text-sm opacity-80">
+              <div className="flex items-center gap-1">
+                <Clock className="size-3" />
+                <span>{formatTime(event.start)} - {formatTime(event.end)}</span>
+              </div>
+            </div>
+          </div>
+          <Badge variant="secondary" className="text-xs">
+            {durationText}
+          </Badge>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
 const BookingDialog = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
