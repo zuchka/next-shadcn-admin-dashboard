@@ -288,7 +288,7 @@ export function MeetingCalendar({
   );
 
   return (
-    <div className="meeting-calendar bg-white rounded-lg border p-6">
+    <div className="meeting-calendar bg-white rounded-lg border p-12" style={{ width: "816px", maxWidth: "100%" }}>
       <style jsx global>{`
         .meeting-calendar .rbc-calendar {
           font-family: var(--font-lato), 'Lato', -apple-system, Roboto, Helvetica, sans-serif;
