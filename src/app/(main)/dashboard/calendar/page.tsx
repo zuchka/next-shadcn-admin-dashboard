@@ -352,13 +352,20 @@ export default function CalendarPage() {
         onDateChange={handleDateChange}
       />
 
-      {/* Today's Events */}
+      {/* Dynamic Events Section */}
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Today's Events</h2>
+        <h2 className="text-xl font-semibold">{dateLabel}</h2>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {mockEvents.map((event) => (
-            <EventCard key={event.id} event={event} />
-          ))}
+          {selectedDateEvents.length > 0 ? (
+            selectedDateEvents.map((event) => (
+              <CalendarEventCard key={event.id} event={event} />
+            ))
+          ) : (
+            <div className="col-span-full text-center py-8 text-muted-foreground">
+              <Calendar className="mx-auto h-12 w-12 mb-4 opacity-50" />
+              <p>No events scheduled for this day</p>
+            </div>
+          )}
         </div>
       </div>
 
