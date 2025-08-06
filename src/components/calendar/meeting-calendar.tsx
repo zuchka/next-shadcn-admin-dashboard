@@ -572,7 +572,7 @@ export function MeetingCalendar({
       
       <Calendar
         localizer={localizer}
-        events={events}
+        events={view === "month" ? [] : events} // Hide events in month view, show indicators instead
         startAccessor="start"
         endAccessor="end"
         style={{ height: view === "month" ? 600 : view === "week" ? 500 : 400 }}
@@ -591,6 +591,11 @@ export function MeetingCalendar({
         showMultiDayTimes={false}
         components={{
           toolbar: customToolbar,
+          month: {
+            dateHeader: ({ date, label }: { date: Date; label: string }) => (
+              <MonthDateCell date={date} events={events} />
+            ),
+          },
         }}
         messages={{
           showMore: (total) => `view more`,
