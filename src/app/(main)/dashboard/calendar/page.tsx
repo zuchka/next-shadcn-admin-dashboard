@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CalendarIcon, Clock, MapPin, Users, Plus } from "lucide-react";
+import { CalendarIcon, Clock, MapPin, Users, Plus, Calendar } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
