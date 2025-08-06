@@ -266,6 +266,52 @@ export default function CalendarPage() {
           ))}
         </div>
       </div>
+
+      {/* Event Detail Dialog */}
+      {selectedEvent && (
+        <Dialog open={isEventDetailOpen} onOpenChange={setIsEventDetailOpen}>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader>
+              <DialogTitle>{selectedEvent.title}</DialogTitle>
+              <DialogDescription>
+                {selectedEvent.start.toLocaleDateString()} at {selectedEvent.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+              </DialogDescription>
+            </DialogHeader>
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <Clock className="size-4" />
+                <span>
+                  {selectedEvent.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} -
+                  {selectedEvent.end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                </span>
+              </div>
+              {selectedEvent.location && (
+                <div className="flex items-center gap-2">
+                  <MapPin className="size-4" />
+                  <span>{selectedEvent.location}</span>
+                </div>
+              )}
+              {selectedEvent.attendees && selectedEvent.attendees.length > 0 && (
+                <div className="flex items-center gap-2">
+                  <Users className="size-4" />
+                  <span>{selectedEvent.attendees.length} attendees</span>
+                </div>
+              )}
+              <Badge variant="secondary" className="w-fit">
+                {selectedEvent.type}
+              </Badge>
+            </div>
+            <DialogFooter>
+              <Button type="button" variant="outline" onClick={() => setIsEventDetailOpen(false)}>
+                Close
+              </Button>
+              <Button type="button">
+                Edit Event
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      )}
     </div>
   );
 }
