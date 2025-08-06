@@ -305,6 +305,7 @@ export default function CalendarPage() {
       <MeetingCalendar
         onSelectEvent={handleSelectEvent}
         onCreateEvent={handleCreateEvent}
+        onDateChange={handleDateChange}
       />
 
       {/* Today's Events */}
