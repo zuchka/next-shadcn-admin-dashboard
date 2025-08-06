@@ -211,7 +211,15 @@ interface MeetingCalendarProps {
 }
 
 // Custom month date cell component that shows event indicators
-const MonthDateCell = ({ date, events }: { date: Date; events: MeetingEvent[] }) => {
+const MonthDateCell = ({
+  date,
+  events,
+  onDayClick
+}: {
+  date: Date;
+  events: MeetingEvent[];
+  onDayClick?: (date: Date, events: MeetingEvent[]) => void;
+}) => {
   const dayEvents = events.filter(event =>
     moment(event.start).isSame(date, 'day')
   );
@@ -223,9 +231,18 @@ const MonthDateCell = ({ date, events }: { date: Date; events: MeetingEvent[] })
     work: "#f3f4f6"
   };
 
+  const isToday = moment(date).isSame(new Date(), 'day');
+
   return (
-    <div className="h-full w-full relative flex flex-col items-center justify-start pt-1">
-      <div className="text-xs font-normal mb-1">
+    <div
+      className={`h-full w-full relative flex flex-col items-center justify-start pt-1 cursor-pointer hover:bg-gray-50 ${
+        dayEvents.length > 0 ? 'hover:bg-blue-50' : ''
+      }`}
+      onClick={() => onDayClick?.(date, dayEvents)}
+    >
+      <div className={`text-xs font-normal mb-1 ${
+        isToday ? 'bg-[#252525] text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]' : ''
+      }`}>
         {moment(date).format('D')}
       </div>
       {dayEvents.length > 0 && (
@@ -233,13 +250,16 @@ const MonthDateCell = ({ date, events }: { date: Date; events: MeetingEvent[] })
           {dayEvents.slice(0, 3).map((event, index) => (
             <div
               key={`${event.id}-${index}`}
-              className="w-1.5 h-1.5 rounded-full"
+              className="w-1.5 h-1.5 rounded-full border border-gray-200"
               style={{ backgroundColor: eventColors[event.type] || eventColors.work }}
               title={event.title}
             />
           ))}
           {dayEvents.length > 3 && (
-            <div className="w-1.5 h-1.5 rounded-full bg-gray-400" title={`+${dayEvents.length - 3} more`} />
+            <div
+              className="w-1.5 h-1.5 rounded-full bg-gray-400 border border-gray-200"
+              title={`+${dayEvents.length - 3} more events`}
+            />
           )}
         </div>
       )}
