@@ -210,10 +210,47 @@ interface MeetingCalendarProps {
   onCreateEvent?: (slot: { start: Date; end: Date }) => void;
 }
 
-export function MeetingCalendar({ 
-  events = sampleEvents, 
-  onSelectEvent, 
-  onCreateEvent 
+// Custom month date cell component that shows event indicators
+const MonthDateCell = ({ date, events }: { date: Date; events: MeetingEvent[] }) => {
+  const dayEvents = events.filter(event =>
+    moment(event.start).isSame(date, 'day')
+  );
+
+  const eventColors = {
+    personal: "#FEE6C9",
+    important: "#FFD9D9",
+    fun: "#D2F0FF",
+    work: "#f3f4f6"
+  };
+
+  return (
+    <div className="h-full w-full relative flex flex-col items-center justify-start pt-1">
+      <div className="text-xs font-normal mb-1">
+        {moment(date).format('D')}
+      </div>
+      {dayEvents.length > 0 && (
+        <div className="flex flex-wrap gap-0.5 justify-center max-w-full">
+          {dayEvents.slice(0, 3).map((event, index) => (
+            <div
+              key={`${event.id}-${index}`}
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ backgroundColor: eventColors[event.type] || eventColors.work }}
+              title={event.title}
+            />
+          ))}
+          {dayEvents.length > 3 && (
+            <div className="w-1.5 h-1.5 rounded-full bg-gray-400" title={`+${dayEvents.length - 3} more`} />
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export function MeetingCalendar({
+  events = sampleEvents,
+  onSelectEvent,
+  onCreateEvent
 }: MeetingCalendarProps) {
   const [currentDate, setCurrentDate] = useState(new Date(2024, 2, 15)); // March 15, 2024 - has events
   const [view, setView] = useState<View>("month");
