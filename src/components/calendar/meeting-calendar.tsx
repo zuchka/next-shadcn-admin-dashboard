@@ -481,19 +481,18 @@ export function MeetingCalendar({
           text-decoration: none;
         }
 
-        /* Month view with event indicators */
+        /* Month view event styling */
         .meeting-calendar .rbc-month-view .rbc-date-cell {
-          padding: 0;
-          height: 100%;
+          text-align: center;
+          padding: 5px 0;
+          font-size: 10px;
+          font-weight: 400;
+          color: #252525;
         }
 
         .meeting-calendar .rbc-month-view .rbc-row-content {
           z-index: 1;
           position: relative;
-        }
-
-        .meeting-calendar .rbc-month-view .rbc-date-cell > a {
-          display: none; /* Hide default date display since we're using custom component */
         }
 
         /* Day and Week view improvements */
