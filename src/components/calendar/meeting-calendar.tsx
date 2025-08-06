@@ -211,7 +211,10 @@ interface MeetingCalendarProps {
   onDateChange?: (date: Date) => void;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 043b2a440e57ad8b01dd3dacd0532cf10e6ff8ac
 export function MeetingCalendar({
   events = sampleEvents,
   onSelectEvent,
@@ -226,19 +229,14 @@ export function MeetingCalendar({
     onDateChange?.(date);
   };
 
-  const handleDayClick = (date: Date, dayEvents: MeetingEvent[]) => {
-    handleDateChange(date);
-    // Don't automatically switch views - let users use the view tabs
-    // Just update the selected date and events will show below
-  };
 
   const eventStyleGetter = useCallback(
     (event: MeetingEvent) => {
       const colorMap = {
-        personal: { bg: "#FEE6C9", color: "#000" },
-        important: { bg: "#FFD9D9", color: "#000" },
-        fun: { bg: "#D2F0FF", color: "#000" },
-        work: { bg: "#f3f4f6", color: "#000" },
+        important: { bg: "#FFD9D9", color: "#000" }, // Light red for important meetings
+        work: { bg: "#FEE6C9", color: "#000" }, // Light orange for work activities
+        fun: { bg: "#D2F0FF", color: "#000" }, // Light blue for networking/fun
+        personal: { bg: "#f3f4f6", color: "#000" }, // Light gray for personal
       };
 
       const colors = colorMap[event.type] || colorMap.work;
@@ -255,6 +253,7 @@ export function MeetingCalendar({
           fontFamily: "var(--font-lato), Lato, -apple-system, Roboto, Helvetica, sans-serif",
           cursor: "pointer",
           transition: "all 0.2s ease",
+          margin: "1px 2px",
         },
       };
     },
@@ -486,6 +485,23 @@ export function MeetingCalendar({
           text-decoration: none;
         }
 
+<<<<<<< HEAD
+=======
+        /* Month view event styling */
+        .meeting-calendar .rbc-month-view .rbc-date-cell {
+          text-align: center;
+          padding: 5px 0;
+          font-size: 10px;
+          font-weight: 400;
+          color: #252525;
+        }
+
+        .meeting-calendar .rbc-month-view .rbc-row-content {
+          z-index: 1;
+          position: relative;
+        }
+
+>>>>>>> 043b2a440e57ad8b01dd3dacd0532cf10e6ff8ac
         /* Day and Week view improvements */
         .meeting-calendar .rbc-time-view .rbc-header {
           border-bottom: 1px solid #e5e7eb;
@@ -549,7 +565,11 @@ export function MeetingCalendar({
       
       <Calendar
         localizer={localizer}
+<<<<<<< HEAD
         events={events}
+=======
+        events={events} // Show events in all views including month view
+>>>>>>> 043b2a440e57ad8b01dd3dacd0532cf10e6ff8ac
         startAccessor="start"
         endAccessor="end"
         style={{ height: view === "month" ? 600 : view === "week" ? 500 : 400 }}
@@ -564,7 +584,10 @@ export function MeetingCalendar({
         eventPropGetter={eventStyleGetter}
         formats={formats}
         onSelectEvent={onSelectEvent}
-        onSelectSlot={onCreateEvent}
+        onSelectSlot={(slot) => {
+          handleDateChange(slot.start);
+          onCreateEvent?.(slot);
+        }}
         selectable
         popup={false}
         showMultiDayTimes={false}
