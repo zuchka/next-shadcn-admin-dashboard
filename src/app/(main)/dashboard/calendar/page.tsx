@@ -169,10 +169,6 @@ const BookingDialog = () => {
             <div className="space-y-2">
               <Label>Date & Time *</Label>
               <div className="flex justify-center">
-                <DateTimePicker
-                  value={formData.dateTime}
-                  onChange={(value) => setFormData({ ...formData, dateTime: value })}
-                />
               </div>
             </div>
             <div className="space-y-2">
@@ -241,117 +237,6 @@ export default function CalendarPage() {
         <BookingDialog />
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        {/* Calendar Widget */}
-        <Card className="lg:col-span-1">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <CalendarIcon className="size-5" />
-              Calendar
-            </CardTitle>
-            <CardDescription>Select a date to view scheduled events</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Calendar
-              mode="single"
-              selected={selectedDate}
-              onSelect={setSelectedDate}
-              className="rounded-md border-0 w-full"
-            />
-          </CardContent>
-        </Card>
-
-        {/* Events for Selected Date */}
-        <Card className="lg:col-span-2">
-          <CardHeader>
-            <CardTitle>
-              Events for{" "}
-              {selectedDate?.toLocaleDateString("en-US", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </CardTitle>
-            <CardDescription>{mockEvents.length} events scheduled for this day</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {mockEvents.length > 0 ? (
-                mockEvents.map((event) => <EventCard key={event.id} event={event} />)
-              ) : (
-                <div className="text-center py-12">
-                  <CalendarIcon className="mx-auto size-12 text-muted-foreground mb-4" />
-                  <h3 className="text-lg font-medium text-muted-foreground mb-2">No events scheduled</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    You don&apos;t have any events scheduled for this day.
-                  </p>
-                  <BookingDialog />
-                </div>
-              )}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Quick Stats */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Card>
-          <CardContent className="p-6">
-            <div className="flex items-center gap-4">
-              <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-lg">
-                <CalendarIcon className="size-6 text-blue-600 dark:text-blue-400" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">Today</p>
-                <p className="text-2xl font-bold">{mockEvents.length}</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="p-6">
-            <div className="flex items-center gap-4">
-              <div className="p-2 bg-green-100 dark:bg-green-900 rounded-lg">
-                <Clock className="size-6 text-green-600 dark:text-green-400" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">This Week</p>
-                <p className="text-2xl font-bold">12</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="p-6">
-            <div className="flex items-center gap-4">
-              <div className="p-2 bg-purple-100 dark:bg-purple-900 rounded-lg">
-                <Users className="size-6 text-purple-600 dark:text-purple-400" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">Total Attendees</p>
-                <p className="text-2xl font-bold">{mockEvents.reduce((sum, event) => sum + event.attendees, 0)}</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardContent className="p-6">
-            <div className="flex items-center gap-4">
-              <div className="p-2 bg-orange-100 dark:bg-orange-900 rounded-lg">
-                <MapPin className="size-6 text-orange-600 dark:text-orange-400" />
-              </div>
-              <div>
-                <p className="text-sm font-medium text-muted-foreground">Locations</p>
-                <p className="text-2xl font-bold">{new Set(mockEvents.map((event) => event.location)).size}</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
     </div>
   );
 }
