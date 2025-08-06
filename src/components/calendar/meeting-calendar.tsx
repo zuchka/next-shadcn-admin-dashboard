@@ -475,39 +475,15 @@ export function MeetingCalendar({
         }
 
         .meeting-calendar .rbc-month-view .rbc-row {
-          min-height: 120px;
+          min-height: 85px;
         }
 
         .meeting-calendar .rbc-row-content {
-          padding: 0;
+          padding: 2px;
         }
 
         .meeting-calendar .rbc-date-cell a {
           text-decoration: none;
-        }
-
-        /* Month view with event list */
-        .meeting-calendar .rbc-month-view .rbc-date-cell {
-          padding: 0;
-          height: 100%;
-        }
-
-        .meeting-calendar .rbc-month-view .rbc-row-content {
-          z-index: 1;
-          position: relative;
-          display: none; /* Hide default events in month view */
-        }
-
-        .meeting-calendar .rbc-month-view .rbc-date-cell > a {
-          display: none; /* Hide default date display since we're using custom component */
-        }
-
-        .meeting-calendar .rbc-month-view .rbc-event {
-          display: none; /* Hide default month events to avoid duplication */
-        }
-
-        .meeting-calendar .rbc-month-view .rbc-show-more {
-          display: none; /* Hide default show more link */
         }
 
         /* Day and Week view improvements */
