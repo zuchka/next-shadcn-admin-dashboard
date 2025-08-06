@@ -284,12 +284,12 @@ export function MeetingCalendar({
   };
 
   const handleDayClick = (date: Date, dayEvents: MeetingEvent[]) => {
+    handleDateChange(date);
     if (dayEvents.length === 1) {
       // If only one event, open it directly
       onSelectEvent?.(dayEvents[0]);
     } else if (dayEvents.length > 1) {
       // If multiple events, could switch to day view or show a list
-      setCurrentDate(date);
       setView("day");
     } else {
       // No events, could create new event
