@@ -208,6 +208,7 @@ interface MeetingCalendarProps {
   events?: MeetingEvent[];
   onSelectEvent?: (event: MeetingEvent) => void;
   onCreateEvent?: (slot: { start: Date; end: Date }) => void;
+  onDateChange?: (date: Date) => void;
 }
 
 // Custom month date cell component that shows event indicators
