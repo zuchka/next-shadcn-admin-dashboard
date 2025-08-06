@@ -23,6 +23,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { MeetingCalendar, type MeetingEvent } from "@/components/calendar/meeting-calendar";
 
 // Mock events data
 const mockEvents = [
