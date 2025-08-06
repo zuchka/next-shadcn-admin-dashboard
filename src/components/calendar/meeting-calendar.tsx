@@ -570,15 +570,6 @@ export function MeetingCalendar({
         showMultiDayTimes={false}
         components={{
           toolbar: customToolbar,
-          month: {
-            dateHeader: ({ date, label }: { date: Date; label: string }) => (
-              <MonthDateCell
-                date={date}
-                events={events}
-                onDayClick={handleDayClick}
-              />
-            ),
-          },
         }}
         messages={{
           showMore: (total) => `+${total} more`,
