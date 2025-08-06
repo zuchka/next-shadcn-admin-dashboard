@@ -290,7 +290,7 @@ export function MeetingCalendar({
     <div className="meeting-calendar bg-white rounded-lg border p-6">
       <style jsx global>{`
         .meeting-calendar .rbc-calendar {
-          font-family: 'Lato', -apple-system, Roboto, Helvetica, sans-serif;
+          font-family: var(--font-lato), 'Lato', -apple-system, Roboto, Helvetica, sans-serif;
           background: white;
         }
         
