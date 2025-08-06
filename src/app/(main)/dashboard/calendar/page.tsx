@@ -106,12 +106,14 @@ const EventCard = ({ event }: { event: (typeof mockEvents)[0] }) => {
 const CalendarEventCard = ({ event }: { event: { id: string; title: string; start: Date; end: Date; type: string } }) => {
   const getEventColor = (type: string) => {
     switch (type) {
-      case "personal":
-        return "bg-orange-100 border-orange-200 text-orange-800";
       case "important":
-        return "bg-red-100 border-red-200 text-red-800";
+        return "bg-red-100 border-red-200 text-red-800"; // High priority meetings
+      case "work":
+        return "bg-orange-100 border-orange-200 text-orange-800"; // Regular sales activities
       case "fun":
-        return "bg-blue-100 border-blue-200 text-blue-800";
+        return "bg-blue-100 border-blue-200 text-blue-800"; // Networking/team events
+      case "personal":
+        return "bg-gray-100 border-gray-200 text-gray-800"; // Personal/misc
       default:
         return "bg-gray-100 border-gray-200 text-gray-800";
     }
