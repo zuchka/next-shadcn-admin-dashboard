@@ -547,7 +547,7 @@ export function MeetingCalendar({
         events={events}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: view === "month" ? 600 : view === "week" ? 500 : 400 }}
+        style={{ height: view === "month" ? 700 : view === "week" ? 500 : 400 }}
         view={view}
         onView={setView}
         date={currentDate}
