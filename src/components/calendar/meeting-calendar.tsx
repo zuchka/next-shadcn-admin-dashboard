@@ -538,7 +538,9 @@ export function MeetingCalendar({
         view={view}
         onView={setView}
         date={currentDate}
-        onNavigate={setCurrentDate}
+        onNavigate={(date, view, action) => {
+          setCurrentDate(date);
+        }}
         eventPropGetter={eventStyleGetter}
         formats={formats}
         onSelectEvent={onSelectEvent}
