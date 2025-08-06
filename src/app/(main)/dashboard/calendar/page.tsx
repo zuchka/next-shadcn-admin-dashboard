@@ -227,6 +227,16 @@ const BookingDialog = () => {
 export default function CalendarPage() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
 
+  const handleSelectEvent = (event: MeetingEvent) => {
+    console.log("Selected event:", event);
+    // You can implement event editing/viewing logic here
+  };
+
+  const handleCreateEvent = (slot: { start: Date; end: Date }) => {
+    console.log("Create event for slot:", slot);
+    // You can implement event creation logic here
+  };
+
   return (
     <div className="@container/main flex flex-col gap-6 md:gap-8">
       {/* Header */}
@@ -238,6 +248,21 @@ export default function CalendarPage() {
         <BookingDialog />
       </div>
 
+      {/* Calendar */}
+      <MeetingCalendar
+        onSelectEvent={handleSelectEvent}
+        onCreateEvent={handleCreateEvent}
+      />
+
+      {/* Today's Events */}
+      <div className="space-y-4">
+        <h2 className="text-xl font-semibold">Today's Events</h2>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {mockEvents.map((event) => (
+            <EventCard key={event.id} event={event} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
