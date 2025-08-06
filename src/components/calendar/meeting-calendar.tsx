@@ -642,7 +642,11 @@ export function MeetingCalendar({
           toolbar: customToolbar,
           month: {
             dateHeader: ({ date, label }: { date: Date; label: string }) => (
-              <MonthDateCell date={date} events={events} />
+              <MonthDateCell
+                date={date}
+                events={events}
+                onDayClick={handleDayClick}
+              />
             ),
           },
         }}
